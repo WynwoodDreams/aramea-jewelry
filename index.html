@@ -3,33 +3,30 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>ARAMEA — Jewelry &amp; Accessories · Miami</title>
-<meta name="description" content="ARAMEA. 925 Silver and 18K Gold Laminated heirloom jewelry, designed in Miami. For forever moments." />
-<meta name="theme-color" content="#0a0908" />
+<title>ARAMEA — Miami</title>
+<meta name="description" content="ARAMEA. Heirloom pieces in 925 silver and 18K gold, designed in Miami." />
+<meta name="theme-color" content="#ece6dc" />
 
-<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230a0908'/><text x='50' y='62' font-family='serif' font-size='42' fill='%23c9a96e' text-anchor='middle' font-weight='700'>A</text><text x='62' y='62' font-family='serif' font-size='30' fill='%23c4c4cc' text-anchor='middle' font-weight='700'>R</text></svg>" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23171411'/><text x='16' y='22' font-family='serif' font-size='18' fill='%23ece6dc' text-anchor='middle' letter-spacing='1'>AR</text></svg>" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,30..100,0..1;1,9..144,300..500,30..100,0..1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --ink:#0a0908;
-  --ivory:#f5f1e8;
-  --cream:#ede6d6;
-  --sand:#e0d6bf;
-  --gold:#c9a96e;
-  --gold-light:#d4b97e;
-  --gold-dark:#9d8654;
-  --silver:#c4c4cc;
-  --silver-light:#dcdce0;
-  --silver-dark:#8a8a92;
-  --charcoal:#1a1715;
-  --display:'Italiana', 'Bodoni Moda', serif;
-  --editorial:'Bodoni Moda', serif;
-  --serif:'Cormorant Garamond', serif;
-  --sans:'Jost', system-ui, sans-serif;
+  --bone:#ece6dc;
+  --paper:#e3dccf;
+  --paper-deep:#d8cfbe;
+  --ink:#171411;
+  --shadow:#221d18;
+  --ash:#605650;
+  --dust:#a89e8e;
+  --bronze:#947a52;
+  --bronze-deep:#6b5639;
+
+  --display:'Fraunces', 'Times New Roman', serif;
+  --sans:'Inter', system-ui, -apple-system, sans-serif;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -38,1008 +35,726 @@ body{
   margin:0;
   font-family:var(--sans);
   font-weight:300;
+  font-size:15px;
+  line-height:1.6;
   color:var(--ink);
-  background:var(--ivory);
-  line-height:1.55;
-  font-size:16px;
+  background:var(--bone);
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+  text-rendering:geometricPrecision;
+  font-feature-settings:"ss01","ss02";
 }
-img,svg{max-width:100%;height:auto;display:block}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+img,svg{display:block;max-width:100%;height:auto}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer;padding:0}
 a{color:inherit;text-decoration:none}
-.container{width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,72px)}
 .eyebrow{
   font-family:var(--sans);
-  font-size:11px;
-  letter-spacing:.32em;
+  font-size:10.5px;
+  letter-spacing:.28em;
   text-transform:uppercase;
   font-weight:500;
-  color:var(--gold-dark);
+  color:var(--ash);
 }
-.rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold) 40%,var(--gold) 60%,transparent);border:0;flex:1;min-width:24px}
-.rule.silver{background:linear-gradient(90deg,transparent,var(--silver-dark) 40%,var(--silver-dark) 60%,transparent)}
+.eyebrow .num{color:var(--bronze);font-feature-settings:"tnum"}
 
 /* ===== HEADER ===== */
-.site-header{
+.header{
   position:fixed;top:0;left:0;right:0;z-index:50;
-  backdrop-filter:saturate(140%) blur(14px);
-  -webkit-backdrop-filter:saturate(140%) blur(14px);
-  background:rgba(245,241,232,.78);
-  border-bottom:1px solid rgba(10,9,8,.06);
-  transition:background .3s ease, border-color .3s ease;
+  padding:18px clamp(24px,5vw,72px);
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  background:transparent;transition:background .4s ease, padding .4s ease;
 }
-.site-header__inner{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px clamp(20px,4vw,56px);
-  gap:32px;
-}
-.brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:22px;letter-spacing:.16em}
-.brand .seal{width:36px;height:36px;flex:none}
-.nav{display:flex;gap:34px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
-.nav a{position:relative;padding:6px 0;color:var(--ink);opacity:.78;transition:opacity .25s}
-.nav a:hover{opacity:1}
-.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
-.nav a:hover::after{transform:scaleX(1)}
-.utility{display:flex;align-items:center;gap:18px;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
-.utility button{display:flex;align-items:center;gap:8px;color:var(--ink);opacity:.78;transition:opacity .25s}
-.utility button:hover{opacity:1}
-.utility svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.4}
-.menu-btn{display:none}
-@media (max-width:960px){
-  .nav,.utility .label{display:none}
-  .menu-btn{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
-  .menu-btn .bars{width:22px;height:14px;position:relative}
-  .menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--ink)}
-  .menu-btn .bars::before{top:3px}
-  .menu-btn .bars::after{bottom:3px}
+.header.solid{background:rgba(236,230,220,.92);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);padding-top:14px;padding-bottom:14px}
+.header__brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-variation-settings:"opsz" 36,"wght" 400,"SOFT" 50;font-size:14px;letter-spacing:.34em;text-transform:uppercase}
+.header__brand .mk{width:22px;height:22px;display:grid;place-items:center;background:var(--ink);color:var(--bone);border-radius:50%;font-family:var(--display);font-size:9px;letter-spacing:.06em;font-weight:500}
+.header__nav{display:flex;gap:36px;justify-content:center;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:400}
+.header__nav a{color:var(--ink);opacity:.7;transition:opacity .25s}
+.header__nav a:hover{opacity:1}
+.header__util{display:flex;gap:24px;justify-content:flex-end;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:400;color:var(--ink);opacity:.7}
+.header__util a{transition:opacity .25s}
+.header__util a:hover{opacity:1}
+.header__menu{display:none;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+@media (max-width:880px){
+  .header__nav,.header__util a:not(.bag){display:none}
+  .header{grid-template-columns:1fr auto auto;gap:20px}
+  .header__menu{display:inline-flex;align-items:center;gap:10px;color:var(--ink)}
+  .header__menu .bars{display:inline-block;width:18px;height:1px;background:currentColor;position:relative}
+  .header__menu .bars::after{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:currentColor}
 }
 
-/* ===== MOBILE DRAWER ===== */
+/* ===== DRAWER ===== */
 .drawer{
-  position:fixed;inset:0;background:var(--ink);color:var(--ivory);z-index:60;
-  transform:translateY(-100%);transition:transform .5s cubic-bezier(.7,0,.2,1);
-  display:flex;flex-direction:column;padding:24px clamp(20px,5vw,40px) 40px;
+  position:fixed;inset:0;background:var(--ink);color:var(--bone);z-index:60;
+  transform:translateY(-100%);transition:transform .55s cubic-bezier(.7,0,.2,1);
+  display:flex;flex-direction:column;padding:22px clamp(24px,5vw,40px) 36px;
 }
 .drawer.open{transform:translateY(0)}
 .drawer__top{display:flex;justify-content:space-between;align-items:center}
-.drawer__close{font-size:12px;letter-spacing:.22em;text-transform:uppercase}
-.drawer__nav{margin-top:auto;display:flex;flex-direction:column;gap:18px;padding-bottom:40px}
-.drawer__nav a{font-family:var(--display);font-size:clamp(36px,9vw,68px);line-height:1;color:var(--ivory)}
-.drawer__nav a span{display:inline-block;margin-right:14px;font-family:var(--sans);font-size:12px;letter-spacing:.3em;color:var(--gold);vertical-align:middle}
-.drawer__foot{display:flex;justify-content:space-between;gap:20px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--silver);border-top:1px solid rgba(245,241,232,.18);padding-top:18px}
+.drawer__top .header__brand{color:var(--bone)}
+.drawer__top .header__brand .mk{background:var(--bone);color:var(--ink)}
+.drawer__close{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--bone)}
+.drawer__nav{margin-top:auto;display:flex;flex-direction:column;gap:14px;padding-bottom:40px}
+.drawer__nav a{font-family:var(--display);font-variation-settings:"opsz" 96,"wght" 350;font-size:clamp(40px,9vw,72px);line-height:1;color:var(--bone);display:flex;align-items:baseline;gap:18px}
+.drawer__nav a .n{font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--bronze);font-weight:500}
+.drawer__foot{display:flex;justify-content:space-between;gap:20px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--dust);border-top:1px solid rgba(236,230,220,.16);padding-top:18px}
 
-/* ===== HERO ===== */
-.hero{
-  position:relative;
+/* ===== PHASE I — COVER ===== */
+.cover{
   min-height:100vh;
-  padding:120px 0 60px;
-  display:flex;align-items:center;
-  background:
-    radial-gradient(120% 80% at 85% 20%, rgba(201,169,110,.16), transparent 60%),
-    radial-gradient(80% 60% at 10% 110%, rgba(196,196,204,.18), transparent 60%),
-    linear-gradient(180deg,var(--ivory),var(--cream));
-  overflow:hidden;
-}
-.hero::before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(10,9,8,.045) 1px,transparent 1px),
-    linear-gradient(90deg, rgba(10,9,8,.045) 1px,transparent 1px);
-  background-size: 100px 100px;
-  mask-image: radial-gradient(80% 70% at 50% 50%, #000 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(80% 70% at 50% 50%, #000 30%, transparent 75%);
-  opacity:.5;
-}
-.hero__grid{
-  position:relative;
   display:grid;
-  grid-template-columns: 1.05fr 1px .95fr;
-  gap:clamp(28px,5vw,72px);
+  grid-template-columns: 0.95fr 1.1fr;
+  gap:clamp(40px,7vw,120px);
   align-items:stretch;
-  z-index:1;
-}
-.hero__divider{
+  padding-top:96px;
   position:relative;
-  background:linear-gradient(180deg,transparent,rgba(10,9,8,.18) 18%,rgba(10,9,8,.18) 82%,transparent);
 }
-.hero__divider .seal{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:96px;height:96px;background:var(--ink);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow: 0 30px 60px -20px rgba(10,9,8,.35), 0 0 0 8px var(--ivory);
-}
-.hero__divider .seal svg{width:54px;height:54px}
-
-/* hero left */
-.hero__left{display:flex;flex-direction:column;justify-content:center;padding:20px 0}
-.hero__eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:32px}
-.hero__eyebrow .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 4px rgba(201,169,110,.16)}
-.hero__wordmark{
+.cover__left{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,4vw,40px) 0}
+.cover__chap{display:flex;align-items:center;gap:14px;margin-bottom:48px}
+.cover__chap .line{flex:0 0 64px;height:1px;background:var(--ink);opacity:.35}
+.cover__title{
   font-family:var(--display);
-  font-size:clamp(72px,13vw,200px);
-  line-height:.88;
-  letter-spacing:-.01em;
-  color:var(--ink);
+  font-variation-settings:"opsz" 144,"wght" 320,"SOFT" 30;
+  font-size:clamp(44px,6.2vw,92px);
+  line-height:1.02;
+  letter-spacing:-.018em;
   margin:0;
-  position:relative;
-}
-.hero__wordmark .star{
-  position:absolute;
-  top:18%;
-  right:-2%;
-  width:clamp(28px,5vw,56px);
-  height:clamp(28px,5vw,56px);
-  color:var(--gold);
-  animation:twinkle 4.5s ease-in-out infinite;
-}
-@keyframes twinkle{
-  0%,100%{transform:scale(1) rotate(0);opacity:.85}
-  50%{transform:scale(1.18) rotate(45deg);opacity:1}
-}
-.hero__sub{
-  font-family:var(--serif);
-  font-style:italic;
-  font-weight:300;
-  font-size:clamp(22px,2.6vw,34px);
-  color:var(--charcoal);
-  margin:24px 0 0;
-  line-height:1.25;
-  max-width:560px;
-}
-.hero__sub em{color:var(--gold-dark);font-style:italic}
-.hero__body{
-  max-width:440px;
-  margin-top:28px;
-  font-size:15px;
-  color:rgba(10,9,8,.72);
-  letter-spacing:.005em;
-}
-.hero__ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px;align-items:center}
-.btn{
-  display:inline-flex;align-items:center;gap:12px;
-  padding:16px 28px;border-radius:999px;
-  font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;
-  transition:transform .35s ease, background .35s ease, color .35s ease, box-shadow .35s ease;
-}
-.btn--primary{
-  background:var(--ink);color:var(--ivory);
-  box-shadow:0 14px 32px -16px rgba(10,9,8,.55), inset 0 0 0 1px var(--ink);
-}
-.btn--primary:hover{background:var(--charcoal);transform:translateY(-2px);box-shadow:0 22px 40px -18px rgba(10,9,8,.6)}
-.btn--primary .arrow{width:14px;height:10px}
-.btn--ghost{
   color:var(--ink);
-  box-shadow:inset 0 0 0 1px rgba(10,9,8,.4);
 }
-.btn--ghost:hover{box-shadow:inset 0 0 0 1px var(--gold);color:var(--gold-dark)}
-.hero__meta{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  margin-top:56px;border-top:1px solid rgba(10,9,8,.12);padding-top:24px;
-  gap:0;
+.cover__title em{
+  font-style:italic;
+  font-variation-settings:"opsz" 144,"wght" 320,"SOFT" 100;
+  color:var(--bronze-deep);
 }
-.hero__meta > div{padding:0 18px;border-left:1px solid rgba(10,9,8,.1)}
-.hero__meta > div:first-child{padding-left:0;border-left:0}
-.hero__meta .k{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-dark);font-weight:500}
-.hero__meta .v{font-family:var(--editorial);font-size:18px;margin-top:6px;letter-spacing:.01em}
+.cover__lede{
+  font-family:var(--display);
+  font-variation-settings:"opsz" 14,"wght" 350;
+  font-size:16px;
+  line-height:1.6;
+  color:var(--ash);
+  margin:36px 0 0;
+  max-width:380px;
+}
+.cover__cta{
+  margin-top:48px;display:inline-flex;align-items:center;gap:14px;
+  font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;color:var(--ink);
+  padding-bottom:6px;border-bottom:1px solid var(--ink);
+  transition:gap .35s ease, color .25s ease, border-color .25s ease;align-self:flex-start;
+}
+.cover__cta:hover{gap:22px;color:var(--bronze-deep);border-color:var(--bronze-deep)}
+.cover__cta svg{width:14px;height:8px;flex:none}
 
-/* hero right — tearsheet */
-.tearsheet{
-  position:relative;align-self:stretch;
-  background:var(--ink);color:var(--ivory);
-  border-radius:2px;
-  padding:28px;
-  display:flex;flex-direction:column;justify-content:space-between;
-  min-height:560px;
-  box-shadow:
-    0 60px 100px -40px rgba(10,9,8,.55),
-    0 0 0 1px rgba(10,9,8,.08);
+.cover__right{
+  position:relative;
+  background:var(--paper);
+  margin:clamp(20px,3vw,40px) 0;
+  display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
-.tearsheet::before{
-  content:"";position:absolute;inset:14px;border:1px solid rgba(245,241,232,.18);pointer-events:none;border-radius:1px;
+.cover__right::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(70% 60% at 60% 45%, rgba(148,122,82,.10), transparent 65%),
+    radial-gradient(40% 50% at 30% 80%, rgba(23,20,17,.08), transparent 70%);
 }
-.tearsheet__top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1}
-.tearsheet__no{font-family:var(--editorial);font-size:clamp(72px,9vw,128px);line-height:.85;color:var(--ivory);letter-spacing:-.04em}
-.tearsheet__no sup{font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--gold);vertical-align:top;margin-left:4px;font-weight:500}
-.tearsheet__tag{text-align:right;font-size:10px;letter-spacing:.3em;color:var(--silver-light);text-transform:uppercase;line-height:1.8}
-.tearsheet__tag b{display:block;color:var(--gold);font-weight:500}
-.tearsheet__art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:60px 40px}
-.tearsheet__art svg{width:100%;height:100%;max-height:420px}
-.tearsheet__caption{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(245,241,232,.2);padding-top:18px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--silver-light)}
-.tearsheet__caption .title{font-family:var(--editorial);font-size:17px;letter-spacing:.04em;color:var(--ivory);text-transform:none;margin-bottom:4px}
-.tearsheet__caption .price{font-family:var(--editorial);font-size:18px;color:var(--gold);text-transform:none;letter-spacing:.02em}
-
-/* scroll cue */
-.scroll-cue{
-  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:10px;
-  font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(10,9,8,.55);
-  z-index:2;
+.cover__object{width:78%;max-width:520px;position:relative;z-index:1}
+.cover__caption{
+  position:absolute;
+  bottom:clamp(20px,3vw,32px);right:clamp(20px,3vw,32px);
+  text-align:right;
+  font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ash);line-height:1.9;
 }
-.scroll-cue .line{width:1px;height:48px;background:linear-gradient(180deg,var(--gold),transparent);position:relative;overflow:hidden}
-.scroll-cue .line::after{content:"";position:absolute;top:-100%;left:0;right:0;height:50%;background:var(--ivory);animation:scroll-dot 2.4s ease-in-out infinite}
-@keyframes scroll-dot{0%{top:-50%}100%{top:120%}}
+.cover__caption .name{
+  display:block;
+  font-family:var(--display);font-variation-settings:"opsz" 24,"wght" 380;
+  font-style:italic;font-size:17px;color:var(--ink);text-transform:none;letter-spacing:0;
+  margin-bottom:4px;
+}
+.cover__corner{
+  position:absolute;top:clamp(20px,3vw,32px);left:clamp(20px,3vw,32px);
+  font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 320;
+  font-size:clamp(60px,7vw,96px);line-height:1;color:var(--ink);opacity:.16;
+}
+.cover__corner sup{font-family:var(--sans);font-size:10px;letter-spacing:.3em;vertical-align:top;font-weight:500;opacity:.6;margin-left:6px}
 
 @media (max-width:900px){
-  .hero{min-height:auto;padding:120px 0 80px}
-  .hero__grid{grid-template-columns:1fr;gap:48px}
-  .hero__divider{display:none}
-  .tearsheet{min-height:480px}
-  .hero__meta{grid-template-columns:1fr 1fr}
-  .hero__meta > div:nth-child(3){grid-column:span 2;border-left:0;padding-left:0;margin-top:18px;border-top:1px solid rgba(10,9,8,.1);padding-top:18px}
-  .scroll-cue{display:none}
+  .cover{grid-template-columns:1fr;min-height:auto;padding-top:120px}
+  .cover__right{aspect-ratio:4/5;margin:0}
 }
 
-/* ===== MARQUEE ===== */
-.marquee{
-  background:var(--ink);color:var(--ivory);padding:18px 0;
-  overflow:hidden;white-space:nowrap;
-  border-top:1px solid rgba(245,241,232,.08);
-  border-bottom:1px solid rgba(245,241,232,.08);
+/* ===== PHASE II — THE PIECE ===== */
+.piece{
+  background:var(--shadow);color:var(--bone);
+  padding:clamp(96px,12vw,160px) 0;
+  position:relative;
 }
-.marquee__track{
-  display:inline-flex;gap:64px;animation:marquee 38s linear infinite;
-  font-family:var(--editorial);font-style:italic;font-size:22px;color:var(--ivory);
+.piece__grid{
+  display:grid;grid-template-columns: 1.05fr 0.95fr;
+  gap:clamp(40px,7vw,120px);align-items:center;
 }
-.marquee__track span{display:inline-flex;align-items:center;gap:64px}
-.marquee__track .sep{color:var(--gold);font-style:normal;font-family:var(--sans);font-size:14px}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ===== SECTIONS ===== */
-section{padding:clamp(80px,10vw,140px) 0}
-.section-head{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:end;margin-bottom:56px}
-.section-head h2{
-  font-family:var(--display);font-size:clamp(40px,6vw,80px);line-height:.95;margin:0;letter-spacing:-.005em;
-}
-.section-head h2 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--gold-dark)}
-.section-head .meta{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(10,9,8,.55);text-align:right;line-height:1.8}
-.section-head .meta b{display:block;font-weight:500;color:var(--ink)}
-@media (max-width:720px){
-  .section-head{grid-template-columns:1fr;gap:14px}
-  .section-head .meta{text-align:left}
-}
-
-/* COLLECTION GRID */
-.collection{background:var(--ivory)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,40px)}
-@media (max-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:760px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}
-.card{position:relative;display:flex;flex-direction:column;gap:14px;transition:transform .4s ease}
-.card:hover{transform:translateY(-4px)}
-.card__media{
-  position:relative;aspect-ratio:4/5;background:var(--cream);
-  overflow:hidden;border-radius:2px;
-}
-.card__media::after{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(120% 80% at 50% 30%, rgba(201,169,110,.12), transparent 60%);
-  pointer-events:none;
-}
-.card__media svg{width:100%;height:100%;display:block}
-.card__badge{
-  position:absolute;top:14px;left:14px;z-index:2;
-  font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;
-  background:var(--ivory);color:var(--ink);padding:6px 10px;border-radius:999px;
-  box-shadow:0 4px 14px -6px rgba(10,9,8,.2);
-}
-.card__badge.gold{background:var(--gold);color:var(--ink)}
-.card__wish{
-  position:absolute;top:14px;right:14px;z-index:2;
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(245,241,232,.92);display:flex;align-items:center;justify-content:center;
-  opacity:0;transform:translateY(-6px);transition:opacity .3s ease, transform .3s ease;
-}
-.card:hover .card__wish{opacity:1;transform:translateY(0)}
-.card__wish svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:1.4}
-.card__body{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:0 2px}
-.card__title{font-family:var(--editorial);font-size:17px;letter-spacing:.01em}
-.card__sub{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dark);margin-top:4px;font-weight:500}
-.card__price{font-family:var(--editorial);font-size:17px;white-space:nowrap}
-
-/* ===== PHILOSOPHY ===== */
-.philosophy{
-  background:var(--ink);color:var(--ivory);
-  position:relative;overflow:hidden;
-}
-.philosophy::before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(50% 60% at 80% 20%, rgba(201,169,110,.18), transparent 60%),
-             radial-gradient(40% 50% at 10% 90%, rgba(196,196,204,.1), transparent 60%);
-}
-.philosophy .container{position:relative;z-index:1}
-.philosophy__inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,120px);align-items:center}
-@media (max-width:900px){.philosophy__inner{grid-template-columns:1fr;gap:48px}}
-.pull-quote{
-  font-family:var(--editorial);font-style:italic;font-weight:400;
-  font-size:clamp(28px,3.2vw,44px);line-height:1.18;letter-spacing:-.005em;color:var(--ivory);
-}
-.pull-quote .drop{
-  font-family:var(--editorial);font-style:normal;
-  font-size:clamp(80px,9vw,128px);float:left;line-height:.7;margin:14px 14px 0 -4px;color:var(--gold);
-}
-.pull-quote::after{content:"";display:block;clear:both}
-.philosophy__by{margin-top:36px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--silver);display:flex;gap:12px;align-items:center}
-.philosophy__by .dash{width:36px;height:1px;background:var(--gold)}
-.philosophy__art{
-  position:relative;aspect-ratio:4/5;
-  border:1px solid rgba(245,241,232,.18);
+.piece__visual{
+  aspect-ratio:4/5;
+  background:var(--ink);
   display:flex;align-items:center;justify-content:center;
-  padding:32px;
+  position:relative;overflow:hidden;
+  box-shadow: 0 60px 100px -50px rgba(0,0,0,.6);
 }
-.philosophy__art::before,.philosophy__art::after{
-  content:"";position:absolute;width:14px;height:14px;border:1px solid var(--gold);
+.piece__visual::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 50% at 50% 45%, rgba(148,122,82,.20), transparent 70%);
 }
-.philosophy__art::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
-.philosophy__art::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
-.philosophy__art svg{width:100%;height:100%}
+.piece__visual svg{width:62%;max-width:340px;position:relative;z-index:1}
+.piece__visual .mk{
+  position:absolute;top:24px;left:24px;font-family:var(--display);font-style:italic;font-size:12px;
+  font-variation-settings:"opsz" 14,"wght" 360;color:var(--dust);letter-spacing:.04em;
+}
+.piece__chap{display:flex;align-items:center;gap:14px;margin-bottom:36px}
+.piece__chap .line{flex:0 0 64px;height:1px;background:var(--bone);opacity:.4}
+.piece__chap .eyebrow{color:var(--dust)}
+.piece__chap .num{color:var(--bronze)}
+.piece h2{
+  font-family:var(--display);
+  font-variation-settings:"opsz" 144,"wght" 320,"SOFT" 50;
+  font-style:italic;
+  font-size:clamp(48px,6.5vw,84px);line-height:1;letter-spacing:-.01em;
+  margin:0;color:var(--bone);
+}
+.piece__lede{
+  font-family:var(--display);
+  font-variation-settings:"opsz" 14,"wght" 350;
+  font-size:16.5px;line-height:1.65;color:var(--dust);
+  margin:32px 0 0;max-width:440px;
+}
+.piece__spec{
+  display:grid;grid-template-columns:auto 1fr;gap:18px 36px;
+  margin-top:48px;padding-top:28px;border-top:1px solid rgba(236,230,220,.18);
+  font-size:13px;
+}
+.piece__spec dt{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze);font-weight:500}
+.piece__spec dd{margin:0;font-family:var(--display);font-variation-settings:"opsz" 14,"wght" 380;color:var(--bone)}
+.piece__cta{
+  margin-top:48px;display:inline-flex;align-items:center;justify-content:space-between;
+  width:100%;max-width:360px;gap:20px;
+  padding:18px 22px;border:1px solid rgba(236,230,220,.3);color:var(--bone);
+  font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;
+  transition:background .3s ease, border-color .3s ease, color .3s ease;
+}
+.piece__cta:hover{background:var(--bronze);border-color:var(--bronze);color:var(--ink)}
+.piece__cta .price{font-family:var(--display);font-style:italic;font-variation-settings:"opsz" 24,"wght" 380;font-size:18px;letter-spacing:0;text-transform:none}
 
-/* ===== JOURNAL / DETAILS ===== */
-.details{background:var(--cream)}
-.details__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
-@media (max-width:820px){.details__grid{grid-template-columns:1fr}}
-.detail-card{
-  background:var(--ivory);padding:36px 32px;display:flex;flex-direction:column;gap:18px;
-  border-top:1px solid var(--gold);transition:transform .3s ease, box-shadow .3s ease;
+@media (max-width:900px){
+  .piece__grid{grid-template-columns:1fr;gap:48px}
+  .piece__visual{aspect-ratio:1/1}
 }
-.detail-card:hover{transform:translateY(-4px);box-shadow:0 30px 60px -36px rgba(10,9,8,.3)}
-.detail-card .icon{width:48px;height:48px;color:var(--gold-dark)}
-.detail-card h3{font-family:var(--display);font-size:28px;line-height:1.1;margin:0;letter-spacing:-.005em}
-.detail-card p{margin:0;font-size:14.5px;color:rgba(10,9,8,.72)}
-.detail-card .more{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-dark);display:inline-flex;gap:8px;align-items:center;margin-top:6px}
 
-/* ===== NEWSLETTER ===== */
-.newsletter{
-  background:linear-gradient(180deg,var(--cream),var(--sand));
-  text-align:center;
+/* ===== PHASE III — VOLUME ===== */
+.volume{padding:clamp(96px,12vw,160px) 0}
+.volume__head{
+  display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;
+  margin-bottom:clamp(56px,7vw,88px);
 }
-.newsletter h2{font-family:var(--display);font-size:clamp(40px,6vw,72px);margin:0 0 16px;line-height:1}
-.newsletter h2 em{font-family:var(--serif);font-style:italic;color:var(--gold-dark);font-weight:300}
-.newsletter p{max-width:520px;margin:0 auto 36px;color:rgba(10,9,8,.7);font-size:15.5px}
-.newsletter__form{
-  display:flex;max-width:520px;margin:0 auto;
-  background:var(--ivory);border-radius:999px;padding:6px;
-  box-shadow:0 18px 40px -20px rgba(10,9,8,.25), inset 0 0 0 1px rgba(10,9,8,.06);
+.volume__head h2{
+  font-family:var(--display);
+  font-variation-settings:"opsz" 144,"wght" 320,"SOFT" 50;
+  font-size:clamp(40px,5.6vw,76px);line-height:1.02;letter-spacing:-.012em;
+  margin:18px 0 0;color:var(--ink);max-width:14ch;
 }
-.newsletter__form input{
-  flex:1;border:0;background:transparent;padding:14px 22px;font:inherit;color:var(--ink);outline:none;
-  font-size:14px;letter-spacing:.04em;
-}
-.newsletter__form input::placeholder{color:rgba(10,9,8,.4)}
-.newsletter__form button{
-  border-radius:999px;background:var(--ink);color:var(--ivory);padding:14px 26px;
-  font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;
-  transition:background .3s ease;
-}
-.newsletter__form button:hover{background:var(--gold-dark)}
-.newsletter__fine{margin-top:18px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(10,9,8,.5)}
+.volume__head h2 em{font-style:italic;color:var(--bronze-deep);font-variation-settings:"opsz" 144,"wght" 320,"SOFT" 100}
+.volume__head .meta{text-align:right;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ash);line-height:1.9}
+.volume__head .meta b{display:block;color:var(--ink);font-weight:500}
+@media (max-width:680px){.volume__head{grid-template-columns:1fr}.volume__head .meta{text-align:left}}
 
-/* ===== FOOTER ===== */
-footer{background:var(--ink);color:var(--ivory)}
-.foot-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:clamp(28px,4vw,60px);padding:72px 0 56px}
-@media (max-width:820px){.foot-top{grid-template-columns:1fr 1fr;gap:36px}}
-@media (max-width:520px){.foot-top{grid-template-columns:1fr}}
-.foot-brand .seal{width:60px;height:60px;margin-bottom:18px}
-.foot-brand h3{font-family:var(--display);font-size:34px;margin:0 0 12px;letter-spacing:.12em}
-.foot-brand p{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--silver-light);max-width:280px;margin:0}
-.foot-col h4{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin:0 0 18px;font-weight:500}
-.foot-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--silver)}
-.foot-col a:hover{color:var(--ivory)}
-.foot-bottom{
-  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
-  padding:22px 0;border-top:1px solid rgba(245,241,232,.1);
-  font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--silver-dark);
+.volume__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,40px)}
+@media (max-width:820px){.volume__grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media (max-width:520px){.volume__grid{grid-template-columns:1fr}}
+.piece-card{display:flex;flex-direction:column;gap:18px;transition:transform .5s ease}
+.piece-card:hover{transform:translateY(-3px)}
+.piece-card__media{aspect-ratio:4/5;background:var(--paper);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.piece-card__media::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 40%, rgba(148,122,82,.10), transparent 70%)}
+.piece-card__media svg{width:62%;max-width:300px;position:relative;z-index:1;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
+.piece-card:hover .piece-card__media svg{transform:scale(1.04)}
+.piece-card__media .num{
+  position:absolute;top:18px;left:18px;
+  font-family:var(--sans);font-size:10px;letter-spacing:.28em;color:var(--ash);font-weight:500;
 }
-.foot-bottom .pay{display:flex;gap:14px;align-items:center}
-.foot-bottom .pay span{padding:4px 10px;border:1px solid rgba(245,241,232,.18);border-radius:3px;font-size:9.5px;color:var(--silver)}
+.piece-card__body{display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:baseline}
+.piece-card__name{font-family:var(--display);font-variation-settings:"opsz" 24,"wght" 380;font-style:italic;font-size:18px;letter-spacing:0;color:var(--ink)}
+.piece-card__price{font-family:var(--display);font-variation-settings:"opsz" 14,"wght" 400;font-size:14px;color:var(--ink);white-space:nowrap}
+.piece-card__sub{grid-column:1/-1;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ash);margin-top:-4px}
+
+.volume__more{margin-top:clamp(56px,7vw,88px);display:flex;justify-content:center}
+.volume__more a{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;color:var(--ink);
+  padding-bottom:6px;border-bottom:1px solid var(--ink);
+  transition:gap .35s ease;
+}
+.volume__more a:hover{gap:22px}
+.volume__more svg{width:14px;height:8px}
+
+/* ===== PHASE IV — THE HOUSE ===== */
+.house{
+  background:var(--ink);color:var(--bone);
+  padding:clamp(96px,12vw,160px) 0;position:relative;
+}
+.house__grid{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(40px,7vw,120px);align-items:start}
+@media (max-width:820px){.house__grid{grid-template-columns:1fr;gap:48px}}
+.house__chap .eyebrow{color:var(--dust)}
+.house__chap .num{color:var(--bronze)}
+.house__chap{display:flex;align-items:center;gap:14px;margin-top:8px}
+.house__chap .line{flex:0 0 48px;height:1px;background:var(--bone);opacity:.35}
+.house__text p{
+  font-family:var(--display);
+  font-variation-settings:"opsz" 96,"wght" 320,"SOFT" 50;
+  font-size:clamp(28px,3.3vw,42px);line-height:1.22;letter-spacing:-.005em;
+  color:var(--bone);margin:0 0 28px;max-width:22ch;
+}
+.house__text p em{font-style:italic;color:var(--bronze);font-variation-settings:"opsz" 96,"wght" 320,"SOFT" 100}
+.house__text p:last-of-type{
+  font-size:clamp(15px,1.4vw,17px);line-height:1.65;color:var(--dust);max-width:50ch;
+  font-variation-settings:"opsz" 14,"wght" 350;
+}
+.house__sig{margin-top:32px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--dust);display:flex;align-items:center;gap:14px}
+.house__sig .dash{width:36px;height:1px;background:var(--bronze)}
+
+/* ===== PHASE V — ATELIER / FOOTER ===== */
+.atelier{
+  background:var(--paper);color:var(--ink);
+  padding:clamp(80px,10vw,140px) 0 0;
+}
+.atelier__top{
+  display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,7vw,120px);align-items:start;
+  padding-bottom:clamp(72px,9vw,112px);border-bottom:1px solid rgba(23,20,17,.14);
+}
+@media (max-width:760px){.atelier__top{grid-template-columns:1fr;gap:48px}}
+.atelier__chap{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.atelier__chap .line{flex:0 0 48px;height:1px;background:var(--ink);opacity:.35}
+.atelier h2{
+  font-family:var(--display);font-variation-settings:"opsz" 144,"wght" 320,"SOFT" 50;
+  font-size:clamp(40px,5.6vw,72px);line-height:1.02;letter-spacing:-.012em;
+  margin:0 0 28px;color:var(--ink);max-width:14ch;
+}
+.atelier h2 em{font-style:italic;color:var(--bronze-deep);font-variation-settings:"opsz" 144,"wght" 320,"SOFT" 100}
+.atelier__intro{font-family:var(--display);font-variation-settings:"opsz" 14,"wght" 350;font-size:16px;color:var(--ash);max-width:42ch;margin:0 0 36px}
+.atelier__form{display:flex;gap:0;max-width:480px;border-bottom:1px solid var(--ink);align-items:center}
+.atelier__form input{flex:1;border:0;background:transparent;padding:14px 0;font:inherit;font-size:14px;outline:none;color:var(--ink);letter-spacing:.04em}
+.atelier__form input::placeholder{color:var(--ash)}
+.atelier__form button{padding:14px 0 14px 18px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:10px}
+.atelier__form button svg{width:14px;height:8px}
+.atelier__fine{margin-top:14px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ash)}
+
+.atelier__contact{display:flex;flex-direction:column;gap:32px}
+.atelier__block h4{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze-deep);margin:0 0 12px;font-weight:500}
+.atelier__block p{margin:0;font-family:var(--display);font-variation-settings:"opsz" 14,"wght" 380;font-size:17px;line-height:1.5;color:var(--ink)}
+.atelier__block a{border-bottom:1px solid transparent;transition:border-color .25s}
+.atelier__block a:hover{border-color:var(--ink)}
+
+.atelier__foot{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;align-items:center;
+  padding:28px 0;
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);
+}
+@media (max-width:680px){.atelier__foot{grid-template-columns:1fr;text-align:left;gap:14px}}
+.atelier__foot .center{text-align:center}
+.atelier__foot .right{text-align:right}
+@media (max-width:680px){.atelier__foot .center,.atelier__foot .right{text-align:left}}
+.atelier__foot a:hover{color:var(--ink)}
 
 /* ===== UTILITIES ===== */
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
-.fade-in.in{opacity:1;transform:none}
+.fade{opacity:0;transform:translateY(14px);transition:opacity .9s ease, transform .9s ease}
+.fade.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
 
 <!-- ===== HEADER ===== -->
-<header class="site-header" id="hdr">
-  <div class="site-header__inner">
-    <a class="brand" href="#top" aria-label="Aramea — home">
-      <svg class="seal" viewBox="0 0 60 60" aria-hidden="true">
-        <circle cx="30" cy="30" r="29" fill="#0a0908"/>
-        <circle cx="30" cy="30" r="29" fill="none" stroke="#c9a96e" stroke-width=".5" opacity=".5"/>
-        <text x="22" y="40" font-family="Italiana,serif" font-size="30" fill="#c9a96e">A</text>
-        <text x="34" y="40" font-family="Italiana,serif" font-size="22" fill="#c4c4cc">R</text>
-        <g transform="translate(31 27)" fill="#c9a96e">
-          <path d="M0 -4 L1 0 L4 1 L1 1.5 L0 4 L-1 1.5 L-4 1 L-1 0 Z"/>
-        </g>
-      </svg>
-      <span>ARAMEA</span>
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="#collection">Collection</a>
-      <a href="#new">New In</a>
-      <a href="#philosophy">The House</a>
-      <a href="#journal">Journal</a>
-      <a href="#contact">Atelier</a>
-    </nav>
-    <div class="utility">
-      <button aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span class="label">Search</span></button>
-      <button aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg><span class="label">Account</span></button>
-      <button aria-label="Bag (0)"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="label">Bag · 0</span></button>
-      <button class="menu-btn" id="menuOpen" aria-label="Open menu"><span class="bars"></span> Menu</button>
-    </div>
+<header class="header" id="hdr">
+  <a class="header__brand" href="#top" aria-label="Aramea — home">
+    <span class="mk">AR</span>
+    <span>Aramea</span>
+  </a>
+  <nav class="header__nav" aria-label="Primary">
+    <a href="#piece">The Piece</a>
+    <a href="#volume">Volume I</a>
+    <a href="#house">The House</a>
+    <a href="#atelier">Atelier</a>
+  </nav>
+  <div class="header__util">
+    <a href="#" class="bag">Bag · 0</a>
+    <a href="#">Account</a>
+    <button class="header__menu" id="menuOpen" aria-label="Open menu"><span class="bars"></span>Menu</button>
   </div>
 </header>
 
-<!-- mobile drawer -->
+<!-- ===== DRAWER ===== -->
 <aside class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer__top">
-    <span class="brand" style="color:var(--ivory)">
-      <svg class="seal" viewBox="0 0 60 60" aria-hidden="true">
-        <circle cx="30" cy="30" r="29" fill="#0a0908"/>
-        <text x="22" y="40" font-family="Italiana,serif" font-size="30" fill="#c9a96e">A</text>
-        <text x="34" y="40" font-family="Italiana,serif" font-size="22" fill="#c4c4cc">R</text>
-      </svg>
-      <span>ARAMEA</span>
-    </span>
-    <button class="drawer__close" id="menuClose">Close ✕</button>
+    <span class="header__brand"><span class="mk">AR</span><span>Aramea</span></span>
+    <button class="drawer__close" id="menuClose">Close</button>
   </div>
   <nav class="drawer__nav" aria-label="Mobile">
-    <a href="#collection"><span>01</span>Collection</a>
-    <a href="#new"><span>02</span>New In</a>
-    <a href="#philosophy"><span>03</span>The House</a>
-    <a href="#journal"><span>04</span>Journal</a>
-    <a href="#contact"><span>05</span>Atelier</a>
+    <a href="#piece"><span class="n">I</span><span>The Piece</span></a>
+    <a href="#volume"><span class="n">II</span><span>Volume I</span></a>
+    <a href="#house"><span class="n">III</span><span>The House</span></a>
+    <a href="#atelier"><span class="n">IV</span><span>Atelier</span></a>
   </nav>
   <div class="drawer__foot">
     <span>Miami · 2026</span>
-    <span>Wynwood Dreams</span>
+    <span>Aramea</span>
   </div>
 </aside>
 
-<!-- ===== HERO ===== -->
 <main id="top">
-<section class="hero">
-  <div class="container">
-    <div class="hero__grid">
 
-      <!-- LEFT -->
-      <div class="hero__left">
-        <div class="hero__eyebrow">
-          <span class="dot"></span>
-          <span class="eyebrow">Miami · Est. 2026 — Vol. I</span>
-          <hr class="rule" />
-        </div>
-
-        <h1 class="hero__wordmark">
-          ARAMEA
-          <svg class="star" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 0 L13.6 9.6 L24 12 L13.6 14.4 L12 24 L10.4 14.4 L0 12 L10.4 9.6 Z" fill="currentColor"/>
-          </svg>
-        </h1>
-
-        <p class="hero__sub">
-          Heirloom jewelry for <em>forever moments.</em><br />
-          Designed in Miami, finished by hand.
-        </p>
-
-        <p class="hero__body">
-          A new house of 925 sterling and 18K gold-laminated pieces — quietly architectural,
-          worn close to the skin. The inaugural volume features twelve studies in green
-          tourmaline, freshwater pearl, and brushed silver.
-        </p>
-
-        <div class="hero__ctas">
-          <a class="btn btn--primary" href="#collection">
-            Shop Volume I
-            <svg class="arrow" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 5h12M9 1l4 4-4 4"/></svg>
-          </a>
-          <a class="btn btn--ghost" href="#philosophy">Our story</a>
-        </div>
-
-        <div class="hero__meta">
-          <div><div class="k">Material</div><div class="v">925 Silver</div></div>
-          <div><div class="k">Finish</div><div class="v">18K Gold Laminate</div></div>
-          <div><div class="k">Made for</div><div class="v">Forever</div></div>
-        </div>
+<!-- ===== PHASE I — COVER ===== -->
+<section class="cover">
+  <div class="wrap" style="display:contents">
+    <div class="cover__left">
+      <div class="cover__chap">
+        <span class="line"></span>
+        <span class="eyebrow"><span class="num">I</span> — Cover</span>
       </div>
+      <h1 class="cover__title">
+        Heirloom pieces,<br>
+        made to be <em>inherited.</em>
+      </h1>
+      <p class="cover__lede">
+        A new house of 925 silver and 18K gold-laminated jewelry, designed in Miami and finished by hand. Volume I opens with twelve studies.
+      </p>
+      <a class="cover__cta" href="#volume">
+        See the collection
+        <svg viewBox="0 0 14 8" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 4h13M9 1l4 3-4 3"/></svg>
+      </a>
+    </div>
 
-      <!-- DIVIDER + SEAL -->
-      <div class="hero__divider" aria-hidden="true">
-        <div class="seal">
-          <svg viewBox="0 0 60 60">
-            <text x="20" y="40" font-family="Italiana,serif" font-size="32" fill="#c9a96e">A</text>
-            <text x="34" y="40" font-family="Italiana,serif" font-size="22" fill="#c4c4cc">R</text>
-            <g transform="translate(30 28)" fill="#c9a96e">
-              <path d="M0 -5 L1.4 0 L5 1.4 L1.4 1.8 L0 5 L-1.4 1.8 L-5 1.4 L-1.4 0 Z"/>
-            </g>
-          </svg>
-        </div>
+    <div class="cover__right">
+      <div class="cover__corner">I<sup>2026</sup></div>
+
+      <!-- Cover object: quiet pendant illustration -->
+      <svg class="cover__object" viewBox="0 0 520 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="chainA" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#171411" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#171411" stop-opacity=".8"/>
+          </linearGradient>
+          <linearGradient id="bezelA" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#b89770"/>
+            <stop offset=".5" stop-color="#947a52"/>
+            <stop offset="1" stop-color="#5a4528"/>
+          </linearGradient>
+          <linearGradient id="stoneA" x1=".3" y1="0" x2=".7" y2="1">
+            <stop offset="0" stop-color="#3b3128"/>
+            <stop offset=".5" stop-color="#221c16"/>
+            <stop offset="1" stop-color="#0d0a07"/>
+          </linearGradient>
+        </defs>
+
+        <!-- chain arc -->
+        <path d="M40 90 Q 260 280 480 90"
+              fill="none" stroke="url(#chainA)" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- chain dots subtly suggesting links -->
+        <g fill="#171411" opacity=".55">
+          <circle cx="120" cy="160" r="1.2"/><circle cx="180" cy="210" r="1.2"/>
+          <circle cx="240" cy="240" r="1.2"/><circle cx="280" cy="246" r="1.2"/>
+          <circle cx="320" cy="240" r="1.2"/><circle cx="380" cy="210" r="1.2"/>
+          <circle cx="440" cy="160" r="1.2"/>
+        </g>
+
+        <!-- bail -->
+        <path d="M260 252 v -16" stroke="#947a52" stroke-width="1.2" fill="none"/>
+        <ellipse cx="260" cy="248" rx="5" ry="3" fill="none" stroke="url(#bezelA)" stroke-width="1.4"/>
+
+        <!-- emerald-cut bezel (rectangular with chamfered corners) -->
+        <g transform="translate(260 408)">
+          <!-- bezel -->
+          <path d="M-78 -110 L-58 -132 L58 -132 L78 -110 L78 110 L58 132 L-58 132 L-78 110 Z"
+                fill="url(#bezelA)" stroke="#5a4528" stroke-width=".6"/>
+          <!-- stone inset -->
+          <path d="M-66 -100 L-50 -120 L50 -120 L66 -100 L66 100 L50 120 L-50 120 L-66 100 Z"
+                fill="url(#stoneA)"/>
+          <!-- step facets -->
+          <path d="M-54 -94 L-44 -106 L44 -106 L54 -94 L54 94 L44 106 L-44 106 L-54 94 Z"
+                fill="none" stroke="#5a5048" stroke-width=".5" opacity=".6"/>
+          <path d="M-42 -86 L-34 -94 L34 -94 L42 -86 L42 86 L34 94 L-34 94 L-42 86 Z"
+                fill="none" stroke="#5a5048" stroke-width=".4" opacity=".4"/>
+          <!-- single soft highlight -->
+          <path d="M-50 -100 L-40 -112 L-10 -112 L-50 -40 Z" fill="#a89e8e" opacity=".18"/>
+        </g>
+
+        <!-- soft ground shadow -->
+        <ellipse cx="260" cy="558" rx="120" ry="6" fill="#171411" opacity=".08"/>
+      </svg>
+
+      <div class="cover__caption">
+        <span class="name">Verde Eternal</span>
+        Pendant · 925 / 18K Gold
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- RIGHT — tearsheet -->
-      <figure class="tearsheet" aria-label="Featured piece: Verde Eternal No. 01">
-        <div class="tearsheet__top">
-          <div class="tearsheet__no">01<sup>VOL · I</sup></div>
-          <div class="tearsheet__tag">
-            <b>Inaugural</b>
-            piece<br>Limited<br>edition
-          </div>
-        </div>
+<!-- ===== PHASE II — THE PIECE ===== -->
+<section class="piece" id="piece">
+  <div class="wrap">
+    <div class="piece__grid">
 
-        <div class="tearsheet__art" aria-hidden="true">
-          <!-- editorial necklace illustration -->
-          <svg viewBox="0 0 420 520" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="chain" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#dcdce0"/>
-                <stop offset="1" stop-color="#8a8a92"/>
-              </linearGradient>
-              <radialGradient id="gemG" cx=".4" cy=".35" r=".6">
-                <stop offset="0" stop-color="#7ec59a"/>
-                <stop offset=".6" stop-color="#2e6f4d"/>
-                <stop offset="1" stop-color="#0d3320"/>
-              </radialGradient>
-              <radialGradient id="goldG" cx=".4" cy=".35" r=".7">
-                <stop offset="0" stop-color="#f0d599"/>
-                <stop offset=".5" stop-color="#c9a96e"/>
-                <stop offset="1" stop-color="#7a5f33"/>
-              </radialGradient>
-              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="6" result="b"/>
-                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-
-            <!-- subtle backdrop glow -->
-            <ellipse cx="210" cy="320" rx="180" ry="160" fill="#c9a96e" opacity=".07" filter="url(#glow)"/>
-
-            <!-- silver chain arc -->
-            <path d="M40 100 C 130 200, 290 200, 380 100" fill="none" stroke="url(#chain)" stroke-width="2.4" stroke-dasharray="3 2"/>
-            <!-- small links -->
-            <g fill="none" stroke="url(#chain)" stroke-width="1.6">
-              <circle cx="80" cy="130" r="4"/><circle cx="120" cy="160" r="4"/><circle cx="160" cy="180" r="4"/>
-              <circle cx="210" cy="186" r="4"/><circle cx="260" cy="180" r="4"/><circle cx="300" cy="160" r="4"/>
-              <circle cx="340" cy="130" r="4"/>
-            </g>
-
-            <!-- gold bezel pendant -->
-            <g transform="translate(210 220)">
-              <!-- chain to pendant -->
-              <line x1="0" y1="-34" x2="0" y2="-12" stroke="url(#chain)" stroke-width="1.6"/>
-              <!-- ring bail -->
-              <circle cx="0" cy="-14" r="6" fill="none" stroke="url(#goldG)" stroke-width="2.4"/>
-              <!-- bezel outer -->
-              <ellipse cx="0" cy="90" rx="78" ry="100" fill="url(#goldG)"/>
-              <!-- inner gem -->
-              <ellipse cx="0" cy="90" rx="62" ry="84" fill="url(#gemG)"/>
-              <!-- facets -->
-              <path d="M-62 90 L0 6 L62 90 L0 174 Z" fill="none" stroke="#9bd4ad" stroke-width=".8" opacity=".7"/>
-              <path d="M-44 50 L44 50 M-44 130 L44 130" stroke="#9bd4ad" stroke-width=".6" opacity=".5"/>
-              <!-- highlight -->
-              <ellipse cx="-22" cy="50" rx="18" ry="28" fill="#cfe8d6" opacity=".55"/>
-              <ellipse cx="-26" cy="44" rx="6" ry="10" fill="#f0f8f3" opacity=".7"/>
-              <!-- sparkle -->
-              <g transform="translate(28 36)" fill="#f5f1e8">
-                <path d="M0 -7 L1.4 0 L7 1.4 L1.4 2 L0 7 L-1.4 2 L-7 1.4 L-1.4 0 Z" opacity=".9"/>
-              </g>
-            </g>
-
-            <!-- baseline AR mark -->
-            <g transform="translate(186 440)" opacity=".55">
-              <text x="0" y="0" font-family="Italiana,serif" font-size="22" fill="#c9a96e">A</text>
-              <text x="14" y="0" font-family="Italiana,serif" font-size="16" fill="#c4c4cc">R</text>
-            </g>
-            <text x="210" y="468" text-anchor="middle" font-family="Jost,sans-serif" font-size="8" letter-spacing="3" fill="#c9a96e">VERDE · ETERNAL</text>
-          </svg>
-        </div>
-
-        <figcaption class="tearsheet__caption">
-          <div>
-            <div class="title">Verde Eternal</div>
-            <span>Pendant · 925 / 18K Gold</span>
-          </div>
-          <div class="price">$ 480</div>
-        </figcaption>
+      <figure class="piece__visual fade">
+        <span class="mk">AR · Miami</span>
+        <svg viewBox="0 0 340 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="bezelB" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#caa67c"/>
+              <stop offset=".5" stop-color="#947a52"/>
+              <stop offset="1" stop-color="#4a3724"/>
+            </linearGradient>
+            <radialGradient id="stoneB" cx=".42" cy=".35" r=".62">
+              <stop offset="0" stop-color="#4d3a2c"/>
+              <stop offset=".55" stop-color="#221814"/>
+              <stop offset="1" stop-color="#0a0805"/>
+            </radialGradient>
+          </defs>
+          <!-- chain -->
+          <path d="M30 50 Q 170 240 310 50" fill="none" stroke="#7a7065" stroke-width=".8"/>
+          <!-- bail -->
+          <ellipse cx="170" cy="216" rx="5" ry="3" fill="none" stroke="url(#bezelB)" stroke-width="1.2"/>
+          <line x1="170" y1="220" x2="170" y2="232" stroke="url(#bezelB)" stroke-width="1.2"/>
+          <!-- emerald-cut large -->
+          <g transform="translate(170 340)">
+            <path d="M-92 -98 L-72 -120 L72 -120 L92 -98 L92 98 L72 120 L-72 120 L-92 98 Z"
+                  fill="url(#bezelB)"/>
+            <path d="M-78 -88 L-62 -108 L62 -108 L78 -88 L78 88 L62 108 L-62 108 L-78 88 Z"
+                  fill="url(#stoneB)"/>
+            <path d="M-64 -78 L-52 -94 L52 -94 L64 -78 L64 78 L52 94 L-52 94 L-64 78 Z"
+                  fill="none" stroke="#a89e8e" stroke-width=".5" opacity=".4"/>
+            <path d="M-52 -68 L-40 -82 L40 -82 L52 -68 L52 68 L40 82 L-40 82 L-52 68 Z"
+                  fill="none" stroke="#a89e8e" stroke-width=".4" opacity=".25"/>
+            <!-- highlight -->
+            <path d="M-58 -94 L-46 -108 L-14 -108 L-58 -28 Z" fill="#caa67c" opacity=".18"/>
+          </g>
+        </svg>
       </figure>
 
-    </div>
-  </div>
-
-  <div class="scroll-cue" aria-hidden="true">
-    <span>Scroll</span>
-    <span class="line"></span>
-  </div>
-</section>
-
-<!-- ===== MARQUEE ===== -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span>Heirloom · Quiet luxury <span class="sep">✦</span> 925 sterling silver <span class="sep">✦</span> 18K gold laminated <span class="sep">✦</span> Designed in Miami <span class="sep">✦</span> Finished by hand <span class="sep">✦</span> For forever moments <span class="sep">✦</span></span>
-    <span>Heirloom · Quiet luxury <span class="sep">✦</span> 925 sterling silver <span class="sep">✦</span> 18K gold laminated <span class="sep">✦</span> Designed in Miami <span class="sep">✦</span> Finished by hand <span class="sep">✦</span> For forever moments <span class="sep">✦</span></span>
-  </div>
-</div>
-
-<!-- ===== COLLECTION ===== -->
-<section class="collection" id="collection">
-  <div class="container">
-    <header class="section-head fade-in">
-      <span class="eyebrow">Volume I</span>
-      <h2>The <em>Inaugural</em> Collection</h2>
-      <div class="meta"><b>12 Studies</b>In tourmaline, pearl & silver</div>
-    </header>
-
-    <div class="grid">
-
-      <!-- Card 1 -->
-      <a class="card fade-in" href="#" aria-label="Verde Eternal — pendant, $480">
-        <div class="card__media">
-          <span class="card__badge gold">New</span>
-          <button class="card__wish" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
-          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="500" fill="#ede6d6"/>
-            <ellipse cx="200" cy="260" rx="60" ry="78" fill="#c9a96e"/>
-            <ellipse cx="200" cy="260" rx="46" ry="64" fill="#2e6f4d"/>
-            <ellipse cx="184" cy="234" rx="10" ry="16" fill="#cfe8d6" opacity=".7"/>
-            <line x1="200" y1="120" x2="200" y2="180" stroke="#c4c4cc" stroke-width="1.4"/>
-            <text x="200" y="450" text-anchor="middle" font-family="Italiana,serif" font-size="18" fill="#9d8654" letter-spacing="2">VERDE ETERNAL</text>
-          </svg>
+      <div class="piece__copy fade">
+        <div class="piece__chap">
+          <span class="line"></span>
+          <span class="eyebrow"><span class="num">II</span> — The Inaugural Piece</span>
         </div>
-        <div class="card__body">
-          <div><span class="card__title">Verde Eternal</span><span class="card__sub">Pendant · Silver / Gold</span></div>
-          <span class="card__price">$ 480</span>
-        </div>
-      </a>
-
-      <!-- Card 2 -->
-      <a class="card fade-in" href="#">
-        <div class="card__media">
-          <span class="card__badge">Atelier</span>
-          <button class="card__wish" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
-          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="500" fill="#f5f1e8"/>
-            <circle cx="200" cy="240" r="70" fill="none" stroke="#c9a96e" stroke-width="6"/>
-            <circle cx="200" cy="240" r="70" fill="none" stroke="#9d8654" stroke-width="1" opacity=".4"/>
-            <circle cx="200" cy="170" r="8" fill="#dcdce0"/>
-            <text x="200" y="450" text-anchor="middle" font-family="Italiana,serif" font-size="18" fill="#9d8654" letter-spacing="2">IRIS HALO</text>
-          </svg>
-        </div>
-        <div class="card__body">
-          <div><span class="card__title">Iris Halo</span><span class="card__sub">Ring · Silver / Pearl</span></div>
-          <span class="card__price">$ 320</span>
-        </div>
-      </a>
-
-      <!-- Card 3 -->
-      <a class="card fade-in" href="#">
-        <div class="card__media">
-          <button class="card__wish" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
-          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="500" fill="#e0d6bf"/>
-            <g transform="translate(200 220)">
-              <path d="M-60 0 Q 0 -50 60 0 Q 0 60 -60 0 Z" fill="#c9a96e"/>
-              <ellipse cx="0" cy="0" rx="28" ry="14" fill="#8a8a92"/>
-              <line x1="0" y1="-50" x2="0" y2="-110" stroke="#c4c4cc" stroke-width="1.4"/>
-            </g>
-            <text x="200" y="450" text-anchor="middle" font-family="Italiana,serif" font-size="18" fill="#9d8654" letter-spacing="2">SOLEIL MARQUISE</text>
-          </svg>
-        </div>
-        <div class="card__body">
-          <div><span class="card__title">Soleil Marquise</span><span class="card__sub">Necklace · 18K Laminate</span></div>
-          <span class="card__price">$ 540</span>
-        </div>
-      </a>
-
-      <!-- Card 4 -->
-      <a class="card fade-in" href="#">
-        <div class="card__media">
-          <span class="card__badge">Limited</span>
-          <button class="card__wish" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
-          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="500" fill="#ede6d6"/>
-            <g transform="translate(200 250)">
-              <circle r="50" fill="#dcdce0"/>
-              <circle r="50" fill="none" stroke="#8a8a92" stroke-width=".8"/>
-              <circle cx="-12" cy="-14" r="8" fill="#f5f1e8"/>
-            </g>
-            <text x="200" y="450" text-anchor="middle" font-family="Italiana,serif" font-size="18" fill="#9d8654" letter-spacing="2">LUNA PEARL</text>
-          </svg>
-        </div>
-        <div class="card__body">
-          <div><span class="card__title">Luna Pearl</span><span class="card__sub">Earrings · Freshwater</span></div>
-          <span class="card__price">$ 260</span>
-        </div>
-      </a>
-
-      <!-- Card 5 -->
-      <a class="card fade-in" href="#">
-        <div class="card__media">
-          <button class="card__wish" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
-          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="500" fill="#f5f1e8"/>
-            <g transform="translate(200 250)" fill="none" stroke="#c9a96e" stroke-width="3">
-              <ellipse rx="80" ry="36"/>
-              <ellipse rx="80" ry="36" transform="rotate(60)"/>
-              <ellipse rx="80" ry="36" transform="rotate(120)"/>
-            </g>
-            <circle cx="200" cy="250" r="6" fill="#9d8654"/>
-            <text x="200" y="450" text-anchor="middle" font-family="Italiana,serif" font-size="18" fill="#9d8654" letter-spacing="2">ÓRBITA</text>
-          </svg>
-        </div>
-        <div class="card__body">
-          <div><span class="card__title">Órbita</span><span class="card__sub">Cuff · 18K Laminate</span></div>
-          <span class="card__price">$ 420</span>
-        </div>
-      </a>
-
-      <!-- Card 6 -->
-      <a class="card fade-in" href="#">
-        <div class="card__media">
-          <button class="card__wish" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
-          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="500" fill="#e0d6bf"/>
-            <g transform="translate(200 240)">
-              <polygon points="0,-60 52,30 -52,30" fill="#c9a96e"/>
-              <polygon points="0,-30 26,15 -26,15" fill="#9d8654"/>
-              <line x1="0" y1="-60" x2="0" y2="-120" stroke="#c4c4cc"/>
-            </g>
-            <text x="200" y="450" text-anchor="middle" font-family="Italiana,serif" font-size="18" fill="#9d8654" letter-spacing="2">AURA TRIANGLE</text>
-          </svg>
-        </div>
-        <div class="card__body">
-          <div><span class="card__title">Aura Triangle</span><span class="card__sub">Pendant · Gold Laminate</span></div>
-          <span class="card__price">$ 380</span>
-        </div>
-      </a>
-
-      <!-- Card 7 -->
-      <a class="card fade-in" href="#">
-        <div class="card__media">
-          <span class="card__badge gold">New</span>
-          <button class="card__wish" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
-          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="500" fill="#ede6d6"/>
-            <g transform="translate(200 240)">
-              <circle r="60" fill="none" stroke="#8a8a92" stroke-width="2"/>
-              <circle r="40" fill="#dcdce0"/>
-              <circle r="40" fill="none" stroke="#c9a96e" stroke-width="2"/>
-              <g fill="#c9a96e">
-                <circle cx="0" cy="-50" r="3"/><circle cx="50" cy="0" r="3"/>
-                <circle cx="0" cy="50" r="3"/><circle cx="-50" cy="0" r="3"/>
-              </g>
-            </g>
-            <text x="200" y="450" text-anchor="middle" font-family="Italiana,serif" font-size="18" fill="#9d8654" letter-spacing="2">CARDINALE</text>
-          </svg>
-        </div>
-        <div class="card__body">
-          <div><span class="card__title">Cardinale</span><span class="card__sub">Locket · Silver / Gold</span></div>
-          <span class="card__price">$ 510</span>
-        </div>
-      </a>
-
-      <!-- Card 8 -->
-      <a class="card fade-in" href="#">
-        <div class="card__media">
-          <button class="card__wish" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
-          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="500" fill="#f5f1e8"/>
-            <g transform="translate(200 250)">
-              <rect x="-90" y="-6" width="180" height="12" fill="#c9a96e"/>
-              <rect x="-90" y="-6" width="180" height="12" fill="none" stroke="#9d8654"/>
-              <g fill="#2e6f4d">
-                <circle cx="-60" cy="0" r="6"/><circle cx="-20" cy="0" r="6"/>
-                <circle cx="20" cy="0" r="6"/><circle cx="60" cy="0" r="6"/>
-              </g>
-            </g>
-            <text x="200" y="450" text-anchor="middle" font-family="Italiana,serif" font-size="18" fill="#9d8654" letter-spacing="2">TENDERA TENNIS</text>
-          </svg>
-        </div>
-        <div class="card__body">
-          <div><span class="card__title">Tendera Tennis</span><span class="card__sub">Bracelet · Tourmaline</span></div>
-          <span class="card__price">$ 640</span>
-        </div>
-      </a>
-
-    </div>
-
-    <div style="text-align:center;margin-top:64px">
-      <a class="btn btn--ghost" href="#">View all 12 pieces</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PHILOSOPHY ===== -->
-<section class="philosophy" id="philosophy">
-  <div class="container">
-    <div class="philosophy__inner">
-      <div class="fade-in">
-        <span class="eyebrow" style="color:var(--gold)">The House — N° 02</span>
-        <p class="pull-quote" style="margin-top:24px">
-          <span class="drop">“</span>We make jewelry the way letters
-          are written by hand — slowly, with intention,
-          and meant to outlast the moment they were
-          given in.<em></em>
+        <h2>Verde<br>Eternal</h2>
+        <p class="piece__lede">
+          A bezel-set tourmaline, cut to step-faceted depth and held in hand-laminated 18K gold. Worn on a hairline 925 silver cable. Numbered, signed, and finished in our Miami atelier.
         </p>
-        <div class="philosophy__by">
-          <span class="dash"></span>
-          <span>Christian Ortega · Founder, Aramea Miami</span>
-        </div>
+        <dl class="piece__spec">
+          <dt>Stone</dt><dd>Green Tourmaline · 6 ct</dd>
+          <dt>Setting</dt><dd>18K Gold Laminate</dd>
+          <dt>Chain</dt><dd>925 Sterling · 18"</dd>
+          <dt>Edition</dt><dd>100 pieces</dd>
+        </dl>
+        <a class="piece__cta" href="#">
+          <span>Reserve a piece</span>
+          <span class="price">$ 480</span>
+        </a>
       </div>
 
-      <div class="philosophy__art fade-in" aria-hidden="true">
-        <svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="silv2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#dcdce0"/><stop offset="1" stop-color="#8a8a92"/>
-            </linearGradient>
-            <linearGradient id="gold2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#f0d599"/><stop offset="1" stop-color="#9d8654"/>
-            </linearGradient>
-          </defs>
-          <!-- center rings stack -->
-          <g transform="translate(150 200)">
-            <circle r="100" fill="none" stroke="url(#silv2)" stroke-width="3"/>
-            <circle r="80" fill="none" stroke="url(#gold2)" stroke-width="2.4"/>
-            <circle r="60" fill="none" stroke="url(#silv2)" stroke-width="2"/>
-            <circle r="40" fill="none" stroke="url(#gold2)" stroke-width="1.6"/>
-            <circle r="6" fill="#c9a96e"/>
-            <g fill="#c9a96e">
-              <path d="M0 -100 L2 -86 L16 -84 L2 -82 L0 -68 L-2 -82 L-16 -84 L-2 -86 Z" opacity=".9"/>
-            </g>
-          </g>
-          <text x="150" y="350" text-anchor="middle" font-family="Italiana,serif" font-size="14" fill="#c9a96e" letter-spacing="6">ATELIER · MIAMI</text>
-        </svg>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== DETAILS / SERVICES ===== -->
-<section class="details" id="journal">
-  <div class="container">
-    <header class="section-head fade-in">
-      <span class="eyebrow">N° 03</span>
-      <h2>Care &amp; <em>Promise</em></h2>
-      <div class="meta"><b>Heirloom standard</b>Every piece, made to last</div>
+<!-- ===== PHASE III — VOLUME ===== -->
+<section class="volume" id="volume">
+  <div class="wrap">
+    <header class="volume__head fade">
+      <div>
+        <div class="eyebrow"><span class="num">III</span> — Volume I, Spring 2026</div>
+        <h2>Twelve <em>studies</em>, made by hand.</h2>
+      </div>
+      <div class="meta">
+        <b>Edition</b>
+        100 per piece<br>
+        Hand-finished · Miami
+      </div>
     </header>
 
-    <div class="details__grid">
-      <article class="detail-card fade-in">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
-          <path d="M24 6 L40 14 L40 28 C40 36 24 42 24 42 C24 42 8 36 8 28 L8 14 Z"/>
-          <path d="M18 24 L22 28 L30 20"/>
-        </svg>
-        <h3>Lifetime Care</h3>
-        <p>Complimentary cleaning and re-laminating for the life of every Aramea piece. Send it back; it returns new.</p>
-        <a class="more" href="#">Learn more →</a>
-      </article>
+    <div class="volume__grid">
 
-      <article class="detail-card fade-in">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
-          <rect x="8" y="14" width="32" height="24" rx="2"/>
-          <path d="M16 14 V8 H32 V14"/>
-          <circle cx="24" cy="26" r="4"/>
-        </svg>
-        <h3>Hand-Finished</h3>
-        <p>Each piece is polished, set, and inspected in our Miami atelier. Numbered, signed, and packaged in the Aramea coffer.</p>
-        <a class="more" href="#">The process →</a>
-      </article>
+      <a class="piece-card fade" href="#">
+        <div class="piece-card__media">
+          <span class="num">N° 01</span>
+          <svg viewBox="0 0 300 380" aria-hidden="true">
+            <defs>
+              <linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b89770"/><stop offset="1" stop-color="#5a4528"/></linearGradient>
+              <radialGradient id="s1" cx=".4" cy=".35" r=".6"><stop offset="0" stop-color="#3b3128"/><stop offset="1" stop-color="#0d0a07"/></radialGradient>
+            </defs>
+            <path d="M40 70 Q 150 200 260 70" fill="none" stroke="#7a7065" stroke-width=".8"/>
+            <line x1="150" y1="194" x2="150" y2="204" stroke="url(#b1)" stroke-width="1"/>
+            <g transform="translate(150 300)">
+              <path d="M-68 -78 L-52 -96 L52 -96 L68 -78 L68 78 L52 96 L-52 96 L-68 78 Z" fill="url(#b1)"/>
+              <path d="M-56 -70 L-44 -86 L44 -86 L56 -70 L56 70 L44 86 L-44 86 L-56 70 Z" fill="url(#s1)"/>
+            </g>
+          </svg>
+        </div>
+        <div class="piece-card__body">
+          <span class="piece-card__name">Verde Eternal</span>
+          <span class="piece-card__price">$ 480</span>
+          <span class="piece-card__sub">Pendant · Tourmaline</span>
+        </div>
+      </a>
 
-      <article class="detail-card fade-in">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
-          <circle cx="24" cy="24" r="16"/>
-          <path d="M24 8 V24 L34 30"/>
-        </svg>
-        <h3>14-Day Returns</h3>
-        <p>Not your forever moment? Send it back within 14 days, unworn and in its coffer, for a full refund.</p>
-        <a class="more" href="#">Policy →</a>
-      </article>
+      <a class="piece-card fade" href="#">
+        <div class="piece-card__media">
+          <span class="num">N° 02</span>
+          <svg viewBox="0 0 300 380" aria-hidden="true">
+            <defs>
+              <linearGradient id="b2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfc4b2"/><stop offset="1" stop-color="#7a7065"/></linearGradient>
+              <radialGradient id="p2" cx=".35" cy=".3" r=".6"><stop offset="0" stop-color="#f5f0e6"/><stop offset=".6" stop-color="#cfc4b2"/><stop offset="1" stop-color="#8a8275"/></radialGradient>
+            </defs>
+            <ellipse cx="150" cy="200" rx="70" ry="70" fill="none" stroke="url(#b2)" stroke-width="3"/>
+            <ellipse cx="150" cy="200" rx="70" ry="70" fill="none" stroke="#171411" stroke-width=".4" opacity=".3"/>
+            <circle cx="150" cy="135" r="9" fill="url(#p2)"/>
+            <circle cx="138" cy="128" r="2.5" fill="#fff" opacity=".7"/>
+          </svg>
+        </div>
+        <div class="piece-card__body">
+          <span class="piece-card__name">Iris Halo</span>
+          <span class="piece-card__price">$ 320</span>
+          <span class="piece-card__sub">Ring · 925 / Pearl</span>
+        </div>
+      </a>
+
+      <a class="piece-card fade" href="#">
+        <div class="piece-card__media">
+          <span class="num">N° 03</span>
+          <svg viewBox="0 0 300 380" aria-hidden="true">
+            <defs>
+              <linearGradient id="b3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#caa67c"/><stop offset="1" stop-color="#6b5639"/></linearGradient>
+            </defs>
+            <!-- two drop earrings -->
+            <g transform="translate(110 190)">
+              <line x1="0" y1="0" x2="0" y2="-40" stroke="url(#b3)" stroke-width="1"/>
+              <circle cx="0" cy="-40" r="3" fill="url(#b3)"/>
+              <path d="M-14 0 L0 -16 L14 0 L0 50 Z" fill="url(#b3)"/>
+            </g>
+            <g transform="translate(190 190)">
+              <line x1="0" y1="0" x2="0" y2="-40" stroke="url(#b3)" stroke-width="1"/>
+              <circle cx="0" cy="-40" r="3" fill="url(#b3)"/>
+              <path d="M-14 0 L0 -16 L14 0 L0 50 Z" fill="url(#b3)"/>
+            </g>
+          </svg>
+        </div>
+        <div class="piece-card__body">
+          <span class="piece-card__name">Soleil Drop</span>
+          <span class="piece-card__price">$ 260</span>
+          <span class="piece-card__sub">Earrings · 18K Laminate</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="volume__more">
+      <a href="#">
+        View all twelve
+        <svg viewBox="0 0 14 8" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 4h13M9 1l4 3-4 3"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ===== NEWSLETTER ===== -->
-<section class="newsletter" id="new">
-  <div class="container">
-    <div class="fade-in">
-      <span class="eyebrow">Letters from Miami</span>
-      <h2 style="margin-top:18px">Receive the <em>volume</em> first.</h2>
-      <p>Quarterly correspondence from the atelier — new pieces, private previews, and the occasional love letter. Never resold, never spammed.</p>
-      <form class="newsletter__form" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Welcome';this.querySelector('input').value=''">
-        <label class="sr" for="em">Email</label>
-        <input id="em" type="email" required placeholder="your@email.com" />
-        <button type="submit">Subscribe</button>
-      </form>
-      <div class="newsletter__fine">No spam · Unsubscribe anytime</div>
+<!-- ===== PHASE IV — THE HOUSE ===== -->
+<section class="house" id="house">
+  <div class="wrap">
+    <div class="house__grid">
+      <div class="house__chap fade">
+        <span class="line"></span>
+        <span class="eyebrow"><span class="num">IV</span> — The House</span>
+      </div>
+      <div class="house__text fade">
+        <p>Aramea makes jewelry the way letters are <em>written by hand —</em> slowly, with intention, and meant to outlast the moment they were given in.</p>
+        <p>Founded in Miami in 2026, the house works only in 925 sterling silver and 18K gold laminate. Each piece is set, polished, and signed in our atelier. We release a single volume per season.</p>
+        <div class="house__sig">
+          <span class="dash"></span>
+          <span>Christian Ortega · Founder</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ===== PHASE V — ATELIER ===== -->
+<section class="atelier" id="atelier">
+  <div class="wrap">
+
+    <div class="atelier__top">
+      <div class="fade">
+        <div class="atelier__chap">
+          <span class="line"></span>
+          <span class="eyebrow"><span class="num">V</span> — Atelier</span>
+        </div>
+        <h2>Letters from <em>Miami.</em></h2>
+        <p class="atelier__intro">
+          Quarterly correspondence from the atelier — new pieces, private previews, and the occasional love letter. Sent four times a year, no more.
+        </p>
+        <form class="atelier__form" onsubmit="event.preventDefault();this.querySelector('button span').textContent='Welcome';this.querySelector('input').value=''">
+          <label class="sr" for="em">Email</label>
+          <input id="em" type="email" required placeholder="your@email.com" autocomplete="email" />
+          <button type="submit">
+            <span>Subscribe</span>
+            <svg viewBox="0 0 14 8" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 4h13M9 1l4 3-4 3"/></svg>
+          </button>
+        </form>
+        <div class="atelier__fine">Four letters a year · Unsubscribe anytime</div>
+      </div>
+
+      <aside class="atelier__contact fade">
+        <div class="atelier__block">
+          <h4>Atelier</h4>
+          <p>By appointment<br>Wynwood, Miami FL</p>
+        </div>
+        <div class="atelier__block">
+          <h4>Correspondence</h4>
+          <p><a href="mailto:hello@aramea.miami">hello@aramea.miami</a></p>
+        </div>
+        <div class="atelier__block">
+          <h4>Care</h4>
+          <p>Complimentary cleaning &amp; re-laminating <br>for the life of every piece.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="atelier__foot">
+      <span>© 2026 Aramea · Miami</span>
+      <span class="center"><a href="#">Care</a> · <a href="#">Shipping</a> · <a href="#">Returns</a> · <a href="#">Privacy</a></span>
+      <span class="right">Wynwood Dreams</span>
+    </div>
+  </div>
+</section>
+
 </main>
-
-<!-- ===== FOOTER ===== -->
-<footer id="contact">
-  <div class="container">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <svg class="seal" viewBox="0 0 60 60">
-          <circle cx="30" cy="30" r="29" fill="#0a0908" stroke="#c9a96e" stroke-width=".5"/>
-          <text x="22" y="40" font-family="Italiana,serif" font-size="30" fill="#c9a96e">A</text>
-          <text x="34" y="40" font-family="Italiana,serif" font-size="22" fill="#c4c4cc">R</text>
-          <g transform="translate(31 27)" fill="#c9a96e">
-            <path d="M0 -4 L1 0 L4 1 L1 1.5 L0 4 L-1 1.5 L-4 1 L-1 0 Z"/>
-          </g>
-        </svg>
-        <h3>ARAMEA</h3>
-        <p>Heirloom jewelry, designed in Miami. For forever moments.</p>
-      </div>
-
-      <div class="foot-col">
-        <h4>Shop</h4>
-        <ul>
-          <li><a href="#">Volume I</a></li>
-          <li><a href="#">Necklaces</a></li>
-          <li><a href="#">Rings</a></li>
-          <li><a href="#">Earrings</a></li>
-          <li><a href="#">Bracelets</a></li>
-        </ul>
-      </div>
-
-      <div class="foot-col">
-        <h4>House</h4>
-        <ul>
-          <li><a href="#">The Atelier</a></li>
-          <li><a href="#">Sustainability</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Journal</a></li>
-        </ul>
-      </div>
-
-      <div class="foot-col">
-        <h4>Service</h4>
-        <ul>
-          <li><a href="#">Care &amp; Repair</a></li>
-          <li><a href="#">Shipping</a></li>
-          <li><a href="#">Returns</a></li>
-          <li><a href="mailto:hello@aramea.miami">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="foot-bottom">
-      <span>© 2026 Aramea Jewelry · Miami</span>
-      <div class="pay">
-        <span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span>
-      </div>
-      <span>Built by Wynwood Dreams</span>
-    </div>
-  </div>
-</footer>
 
 <script>
 (function(){
   // header tone on scroll
   var hdr=document.getElementById('hdr');
   function onScroll(){
-    if(window.scrollY>40){hdr.style.background='rgba(245,241,232,.94)';hdr.style.borderBottomColor='rgba(10,9,8,.1)'}
-    else{hdr.style.background='rgba(245,241,232,.78)';hdr.style.borderBottomColor='rgba(10,9,8,.06)'}
+    if(window.scrollY>30)hdr.classList.add('solid');
+    else hdr.classList.remove('solid');
   }
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
   // mobile drawer
   var drawer=document.getElementById('drawer');
-  document.getElementById('menuOpen').addEventListener('click',function(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'});
+  var open=document.getElementById('menuOpen');
+  if(open){open.addEventListener('click',function(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'})}
   document.getElementById('menuClose').addEventListener('click',close);
   drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
   function close(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow=''}
 
-  // reveal on scroll
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
-  },{rootMargin:'0px 0px -80px 0px',threshold:.05});
-  document.querySelectorAll('.fade-in').forEach(function(el){io.observe(el)});
+  // fade in
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -60px 0px',threshold:.05});
+  document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
 })();
 </script>
 </body>
