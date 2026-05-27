@@ -1,13 +1,20 @@
 {
-  "name": "aramea-jewelry-tailwind-source",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Tailwind source for rebuilding the inlined CSS in ../index.html (only needed when adding new utility classes)",
-  "scripts": {
-    "build": "tailwindcss -i ./input.css -o ./output.css --minify",
-    "watch": "tailwindcss -i ./input.css -o ./output.css --watch"
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.4.19"
-  }
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
 }
