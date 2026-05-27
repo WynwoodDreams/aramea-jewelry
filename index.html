@@ -1,0 +1,127 @@
+# Aramea Jewelry
+
+Editorial e-commerce storefront for **ARAMEA — Jewelry & Accessories**. Single-file static site, designed in Miami, ready to deploy on Vercel.
+
+> *925 Silver · 18K Gold Laminated · Heirloom-quality pieces for forever moments.*
+
+---
+
+## Deploy
+
+### Option 1 — Drag and drop (no Git needed)
+1. Open [vercel.com/new](https://vercel.com/new)
+2. Drag this folder onto the upload zone
+3. Done. Vercel auto-detects static, no build config needed.
+
+### Option 2 — GitHub → Vercel
+```bash
+# in this folder
+git init
+git add .
+git commit -m "Initial Aramea storefront"
+git remote add origin git@github.com:WynwoodDreams/aramea-jewelry.git
+git push -u origin main
+```
+Then go to vercel.com/new, "Import Git Repository", select `aramea-jewelry`, click Deploy. No build settings — it's pure static.
+
+### Option 3 — Vercel CLI
+```bash
+npm i -g vercel
+vercel
+```
+
+---
+
+## What's in this folder
+
+```
+.
+├── index.html        ← the entire site, one file
+├── vercel.json       ← clean URLs, security headers
+├── .gitignore
+├── README.md         ← you are here
+└── src/              ← Tailwind rebuild source (only needed if you add new utility classes)
+    ├── input.css
+    ├── tailwind.config.js
+    └── package.json
+```
+
+**`index.html` is self-contained.** Tailwind is pre-compiled and inlined. Every image is an inline SVG (no broken URLs). The only external dependency is Google Fonts. ~190KB total.
+
+---
+
+## Swapping in real assets
+
+### Hero image
+Right now the hero's right panel is an editorial tearsheet SVG placeholder. To swap in a real photograph:
+1. Drop a JPG/WebP into the folder, e.g. `hero.jpg`
+2. In `index.html`, search for `alt="Aramea — editorial tearsheet"`
+3. Replace the long `src="data:image/svg+xml;utf8,…"` with `src="hero.jpg"`
+
+### Product placeholders (47 of them)
+Each placeholder card is labeled with its piece name in the SVG. To swap one:
+1. Search the HTML for the piece name (e.g. `Verde Eternal`, `Iris Multi-Stone`)
+2. Replace the surrounding `src="data:image/svg+xml;utf8,…"` with your real image path
+
+### Logo / favicon
+The AR seal appears in 3 places in the HTML (header inline-removed, hero bridge, footer) plus the favicon. All are inline SVG. Search for `viewBox="0 0 60 60"` and `viewBox="0 0 100 100"` to find them.
+
+---
+
+## Brand spec
+
+| Token | Value |
+|-------|-------|
+| Ink | `#0a0908` |
+| Ivory | `#f5f1e8` |
+| Cream | `#ede6d6` |
+| Sand | `#e0d6bf` |
+| Gold | `#c9a96e` |
+| Gold light | `#d4b97e` |
+| Gold dark | `#9d8654` |
+| Silver | `#c4c4cc` |
+| Silver light | `#dcdce0` |
+| Silver dark | `#8a8a92` |
+| Charcoal | `#1a1715` |
+
+**Fonts** (loaded from Google Fonts CDN):
+- Italiana — display wordmark
+- Bodoni Moda — editorial pull-quotes, mega numerals
+- Cormorant Garamond — italic accents, body serif
+- Jost — UI, labels, sans serif
+
+**Logo**: gold `A` + silver `R`, gold 4-point sparkle at the intersection. Black disc.
+
+---
+
+## Rebuilding Tailwind (only if you add new utility classes)
+
+The CSS in `index.html` is pre-compiled (Tailwind CLI, tree-shaken to only used classes). If you add a new Tailwind utility that isn't already in the file, you'll need to rebuild:
+
+```bash
+cd src
+npm install
+npm run build
+```
+
+This regenerates `output.css`. Copy its contents into the `<style id="tw-compiled">…</style>` block in `index.html`.
+
+If you're not adding Tailwind classes (only writing custom CSS in the second `<style>` block at the top of `index.html`), you can ignore the `src/` folder entirely.
+
+---
+
+## Tech notes
+
+- **Zero JavaScript dependencies** — only ~30 lines of vanilla JS for the mobile menu drawer
+- **Zero external image dependencies** — all 47 product placeholders + hero + logos are inline SVG
+- **No build step required** — `index.html` is the deliverable
+- **Mobile-first responsive** — horizontal scroll-snap galleries on phones, sticky drawer menu, optimized touch targets
+- **A11y** — semantic HTML, ARIA labels on interactive elements, Escape-to-close on menu, focusable buttons
+
+---
+
+## License & credits
+
+Site code: © 2026 Aramea Jewelry. All rights reserved.
+
+Built by Thomas — WynwoodDreams.
