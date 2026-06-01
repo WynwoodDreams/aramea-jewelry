@@ -162,6 +162,12 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
 .drawer__nav{margin-top:auto;display:flex;flex-direction:column;gap:12px;padding-bottom:30px}
 .drawer__nav a{font-family:var(--display);font-size:clamp(30px,8vw,52px);text-transform:uppercase;letter-spacing:.03em}
 
+/* real-photo overlay (falls back to SVG if a URL fails) */
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;opacity:0;transition:opacity .6s ease}
+.ph.on{opacity:1}
+.heritage .ph,.hero__right .ph{z-index:1}
+.heritage .ph{filter:brightness(.62)}
+
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .fade-in{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
 .fade-in.in{opacity:1;transform:none}
@@ -472,6 +478,54 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
 
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -60px 0px',threshold:.05});
   document.querySelectorAll('.fade-in').forEach(function(el){io.observe(el)});
+
+  /* ===== REAL PHOTOGRAPHY LAYER ===== */
+  /* Curated free Unsplash photos, hotlinked from images.unsplash.com.
+     Each overlays the inline-SVG placeholder; on load it fades in, on error
+     it is removed so the SVG remains. Swap any id below for your own art. */
+  function u(id,w,h){return 'https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&q=70&w='+w+(h?'&h='+h:'')}
+  function place(el,url,opts){
+    opts=opts||{};
+    var img=new Image();
+    img.className='ph';img.alt='';img.decoding='async';img.loading='lazy';
+    img.onload=function(){img.classList.add('on');if(opts.hide)el.querySelectorAll(opts.hide).forEach(function(n){n.style.display='none'})};
+    img.onerror=function(){img.remove()};
+    img.src=url;
+    el.insertBefore(img,el.firstChild);
+  }
+  function fill(sel,ids,w,h,opts){
+    var els=document.querySelectorAll(sel);
+    els.forEach(function(el,i){if(ids[i])place(el,u(ids[i],w,h),opts)});
+  }
+
+  // Hero — model wearing fine jewellery (hide the SVG still-life + note when it loads)
+  var hero=document.querySelector('.hero__right');
+  if(hero)place(hero,u('1535632066927-ab7c9ab60908',1100,1300),{hide:'.hero__model,.photo-note'});
+
+  // New Arrivals lifestyle strip (portrait)
+  fill('.strip a',['1611652022419-a9419f74343d','1635767798638-3e25273a8236','1602173574767-37ac01994b2a','1573408301185-9146fe634ad0'],700,940);
+
+  // Fine Jewellery product grid (square) — order matches the markup
+  fill('#fine .prod__media',[
+    '1599643478518-a784e5dc4c8f', // pendant
+    '1605100804763-247f67b3557e', // sapphire ring
+    '1611591437281-460bfbe1220a', // gold bangle
+    '1633934542430-0905ccb5f050', // diamond earrings
+    '1515562141207-7a88fb7ce338', // eternity band
+    '1523275335684-37898b6baf30', // watch
+    '1603561591411-07134e71a2a9', // ruby ring
+    '1599459183200-59c7687a0275'  // necklace
+  ],600,600);
+
+  // New Arrivals duo within the heritage split
+  fill('.split__arr .prod__media',['1611591437281-460bfbe1220a','1633934542430-0905ccb5f050'],600,600);
+
+  // Our Heritage film still (landscape, dark) — hide the rings motif on load
+  var her=document.querySelector('.heritage');
+  if(her)place(her,u('1610694955371-d4a3e0ce4b52',900,640),{hide:'.heritage__art'});
+
+  // Instagram feed (square)
+  fill('.insta a',['1490481651871-ab68de25d43d','1469334031218-e382a71b716b','1523275335684-37898b6baf30','1605100804763-247f67b3557e','1535632066927-ab7c9ab60908'],500,500);
 })();
 </script>
 </body>
