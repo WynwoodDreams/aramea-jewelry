@@ -86,6 +86,7 @@ ul{list-style:none;margin:0;padding:0}
 .sec__title{font-family:var(--display);font-weight:500;font-size:clamp(26px,3vw,40px);letter-spacing:.04em;text-transform:uppercase;margin:0 0 26px}
 .sec__bar{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:26px}
 .sec__bar h2{font-family:var(--display);font-weight:500;font-size:clamp(24px,3vw,38px);letter-spacing:.04em;text-transform:uppercase;margin:0}
+.sec__eyebrow{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px}
 .sec__bar a{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dark);display:inline-flex;gap:7px;align-items:center}
 .sec__bar a::after{content:"→"}
 
@@ -103,19 +104,26 @@ ul{list-style:none;margin:0;padding:0}
 .prod{display:flex;flex-direction:column}
 .prod__media{position:relative;aspect-ratio:1/1;background:var(--card);overflow:hidden;border:1px solid var(--line)}
 .prod__media svg{width:100%;height:100%}
-.prod__actions{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;transform:translateY(100%);transition:transform .3s ease}
-.prod:hover .prod__actions{transform:translateY(0)}
-.prod__actions button{flex:1;padding:11px 6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(244,240,232,.95);color:var(--ink);transition:background .2s,color .2s}
-.prod__actions button:hover{background:var(--ink);color:#f4f0e8}
-.prod__actions button.bag{background:var(--ink);color:#f4f0e8}
-.prod__actions button.bag:hover{background:var(--gold-dark)}
-.prod__b{padding:12px 2px 0;text-align:center}
-.prod__stars{display:flex;justify-content:center;align-items:center;gap:5px;font-size:11px;color:var(--muted);margin-bottom:5px}
-.prod__stars .s{display:inline-flex;gap:1px}
-.prod__stars svg{width:11px;height:11px;fill:var(--gold)}
-.prod__name{font-family:var(--display);font-weight:500;font-size:18px;line-height:1.15}
-.prod__price{font-family:var(--display);font-weight:600;font-size:16px;margin-top:3px}
-.prod__mat{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+/* badge */
+.badge{position:absolute;top:14px;left:14px;z-index:4;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:#fff;background:var(--gold);padding:6px 12px;box-shadow:0 3px 10px -4px rgba(33,30,25,.45)}
+.badge--sale{background:#c0392b}
+/* hover icon buttons */
+.prod__icons{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;gap:14px;opacity:0;transition:opacity .3s ease}
+.prod:hover .prod__icons{opacity:1}
+.prod__icons button{width:46px;height:46px;border-radius:50%;background:rgba(244,240,232,.95);box-shadow:0 8px 22px -10px rgba(33,30,25,.5);display:flex;align-items:center;justify-content:center;transform:translateY(8px);transition:transform .3s ease,background .2s ease,color .2s ease}
+.prod:hover .prod__icons button{transform:translateY(0)}
+.prod__icons button:nth-child(2){transition-delay:.05s}
+.prod__icons button:hover{background:var(--ink)}
+.prod__icons svg{width:19px;height:19px;stroke:var(--ink);fill:none;stroke-width:1.5;transition:stroke .2s,fill .2s}
+.prod__icons button:hover svg{stroke:#f4f0e8}
+.prod__icons .prod__fav.on svg{fill:var(--gold);stroke:var(--gold)}
+.prod__icons .prod__fav.on:hover svg{fill:#f4f0e8;stroke:#f4f0e8}
+.prod__stars{display:none}
+.prod__b{padding:14px 2px 0;text-align:center}
+.prod__name{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.15;transition:color .25s ease}
+.prod:hover .prod__name{color:var(--gold-dark)}
+.prod__price{font-family:var(--display);font-weight:600;font-size:17px;margin-top:5px;color:var(--gold-dark)}
+.prod__mat{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7d8794;margin-top:7px}
 
 /* ===== HERITAGE SPLIT ===== */
 .split{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,3vw,44px);align-items:stretch}
@@ -278,18 +286,21 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
 <!-- ===== FINE JEWELLERY GRID ===== -->
 <section class="sec" id="fine">
   <div class="wrap">
-    <div class="sec__bar"><h2>Fine Jewellery</h2><a href="#">View all</a></div>
+    <div class="sec__bar"><div><span class="sec__eyebrow">Curated Collection</span><h2>Featured Collection</h2></div><a href="#">View all</a></div>
     <div class="pgrid">
 
       <article class="prod fade-in">
         <div class="prod__media">
           <svg viewBox="0 0 300 300"><path d="M70 70 C 150 180, 150 180, 230 70" fill="none" stroke="url(#silv)" stroke-width="2.4"/><g transform="translate(150 175)"><circle cx="0" cy="-28" r="6" fill="none" stroke="url(#gold)" stroke-width="3"/><polygon points="0,-18 30,8 0,64 -30,8" fill="url(#diam)" stroke="#fff"/><polygon points="0,-18 13,8 0,20 -13,8" fill="#fff" opacity=".7"/></g></svg>
-          <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+          <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
         </div>
         <div class="prod__b">
           <div class="prod__stars"><span class="s"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></span>4.5</div>
           <div class="prod__name">Aurora Diamond Pendant</div>
-          <div class="prod__price">$3,200</div>
+          <div class="prod__price">$2,850</div>
           <div class="prod__mat">18K Gold · Diamonds</div>
         </div>
       </article>
@@ -297,12 +308,15 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
       <article class="prod fade-in">
         <div class="prod__media">
           <svg viewBox="0 0 300 300"><g transform="translate(150 165)"><ellipse cx="0" cy="40" rx="58" ry="62" fill="none" stroke="url(#gold)" stroke-width="14"/><circle cx="0" cy="-22" r="26" fill="url(#sapp)" stroke="#fff" stroke-width="1.4"/><circle cx="-8" cy="-30" r="6" fill="#fff" opacity=".6"/></g></svg>
-          <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+          <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
         </div>
         <div class="prod__b">
           <div class="prod__stars"><span class="s"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></span>4.9</div>
           <div class="prod__name">Celestial Sapphire Ring</div>
-          <div class="prod__price">$5,200</div>
+          <div class="prod__price">$4,200</div>
           <div class="prod__mat">18K Gold · Diamonds</div>
         </div>
       </article>
@@ -310,12 +324,15 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
       <article class="prod fade-in">
         <div class="prod__media">
           <svg viewBox="0 0 300 300"><g transform="translate(150 150)"><ellipse rx="92" ry="92" fill="none" stroke="url(#gold)" stroke-width="20"/><ellipse rx="92" ry="92" fill="none" stroke="#fff4d8" stroke-width="1.4" opacity=".5"/></g></svg>
-          <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+          <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
         </div>
         <div class="prod__b">
           <div class="prod__stars"><span class="s"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></span>4.8</div>
-          <div class="prod__name">Solstice Gold Bangle</div>
-          <div class="prod__price">$2,850</div>
+          <div class="prod__name">Lumina Gold Bangle</div>
+          <div class="prod__price">$1,950</div>
           <div class="prod__mat">18K Gold</div>
         </div>
       </article>
@@ -323,20 +340,26 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
       <article class="prod fade-in">
         <div class="prod__media">
           <svg viewBox="0 0 300 300"><g transform="translate(105 150)"><line x1="0" y1="-70" x2="0" y2="-30" stroke="url(#silv)" stroke-width="2"/><polygon points="0,-30 26,2 0,72 -26,2" fill="url(#diam)" stroke="#fff"/></g><g transform="translate(195 150)"><line x1="0" y1="-70" x2="0" y2="-30" stroke="url(#silv)" stroke-width="2"/><polygon points="0,-30 26,2 0,72 -26,2" fill="url(#diam)" stroke="#fff"/></g></svg>
-          <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+          <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
         </div>
         <div class="prod__b">
           <div class="prod__stars"><span class="s"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></span>5.0</div>
-          <div class="prod__name">Lumina Diamond Earrings</div>
-          <div class="prod__price">$4,100</div>
-          <div class="prod__mat">14K Gold · Diamonds</div>
+          <div class="prod__name">Pearl Elegance Earrings</div>
+          <div class="prod__price">$1,650</div>
+          <div class="prod__mat">18K Gold · Pearl</div>
         </div>
       </article>
 
       <article class="prod fade-in">
         <div class="prod__media">
           <svg viewBox="0 0 300 300"><g transform="translate(150 150)"><ellipse rx="86" ry="86" fill="none" stroke="url(#goldH)" stroke-width="16"/><g fill="url(#diam)"><circle cx="0" cy="-86" r="6"/><circle cx="60" cy="-60" r="6"/><circle cx="86" cy="0" r="6"/></g></g></svg>
-          <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+          <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
         </div>
         <div class="prod__b">
           <div class="prod__stars"><span class="s"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></span>4.7</div>
@@ -349,7 +372,10 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
       <article class="prod fade-in">
         <div class="prod__media">
           <svg viewBox="0 0 300 300"><g transform="translate(150 150)"><circle r="78" fill="#1d1b17"/><circle r="78" fill="none" stroke="url(#gold)" stroke-width="5"/><circle r="60" fill="none" stroke="#3a352c" stroke-width="1"/><line x1="0" y1="0" x2="0" y2="-44" stroke="#cdab68" stroke-width="3"/><line x1="0" y1="0" x2="30" y2="14" stroke="#cdab68" stroke-width="3"/><circle r="4" fill="#cdab68"/></g></svg>
-          <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+          <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
         </div>
         <div class="prod__b">
           <div class="prod__stars"><span class="s"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></span>4.9</div>
@@ -362,7 +388,10 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
       <article class="prod fade-in">
         <div class="prod__media">
           <svg viewBox="0 0 300 300"><g transform="translate(150 165)"><ellipse cx="0" cy="40" rx="58" ry="62" fill="none" stroke="url(#gold)" stroke-width="14"/><circle cx="0" cy="-22" r="26" fill="url(#ruby)" stroke="#fff" stroke-width="1.4"/><circle cx="-8" cy="-30" r="6" fill="#fff" opacity=".5"/></g></svg>
-          <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+          <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
         </div>
         <div class="prod__b">
           <div class="prod__stars"><span class="s"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></span>4.8</div>
@@ -375,7 +404,10 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
       <article class="prod fade-in">
         <div class="prod__media">
           <svg viewBox="0 0 300 300"><path d="M60 80 C 150 220, 150 220, 240 80" fill="none" stroke="url(#gold)" stroke-width="3"/><g transform="translate(150 200)"><circle r="34" fill="none" stroke="url(#gold)" stroke-width="6"/><g fill="url(#diam)"><circle cx="0" cy="-34" r="5"/><circle cx="0" cy="34" r="5"/><circle cx="-34" cy="0" r="5"/><circle cx="34" cy="0" r="5"/></g></g></svg>
-          <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+          <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
         </div>
         <div class="prod__b">
           <div class="prod__stars"><span class="s"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></span>4.6</div>
@@ -399,14 +431,20 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
           <article class="prod">
             <div class="prod__media">
               <svg viewBox="0 0 300 300"><g transform="translate(150 150)"><ellipse rx="92" ry="92" fill="none" stroke="url(#gold)" stroke-width="20"/></g></svg>
-              <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+              <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
             </div>
             <div class="prod__b"><div class="prod__name">Solstice Gold Bangle</div><div class="prod__price">$2,850</div><div class="prod__mat">18K Gold</div></div>
           </article>
           <article class="prod">
             <div class="prod__media">
               <svg viewBox="0 0 300 300"><g transform="translate(105 150)"><line x1="0" y1="-66" x2="0" y2="-26" stroke="url(#silv)" stroke-width="2"/><polygon points="0,-26 24,4 0,66 -24,4" fill="url(#diam)" stroke="#fff"/></g><g transform="translate(195 150)"><line x1="0" y1="-66" x2="0" y2="-26" stroke="url(#silv)" stroke-width="2"/><polygon points="0,-26 24,4 0,66 -24,4" fill="url(#diam)" stroke="#fff"/></g></svg>
-              <div class="prod__actions"><button>Quick Shop</button><button class="bag">Add to Bag</button></div>
+              <div class="prod__icons">
+            <button class="prod__fav" aria-label="Add to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg></button>
+            <button class="prod__bag" aria-label="Add to bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></button>
+          </div>
             </div>
             <div class="prod__b"><div class="prod__name">Lumina Diamond Earrings</div><div class="prod__price">$3,100</div><div class="prod__mat">14K Gold · Diamonds</div></div>
           </article>
@@ -527,6 +565,29 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
 
   // Instagram feed (square)
   fill('.insta a',['1490481651871-ab68de25d43d','1469334031218-e382a71b716b','1523275335684-37898b6baf30','1605100804763-247f67b3557e','1535632066927-ab7c9ab60908'],500,500);
+
+  /* ===== PRODUCT BADGES + FAVOURITE TOGGLE ===== */
+  var badges=['New Arrival','Sale',null,'New Arrival',null,null,'Sale','New Arrival'];
+  document.querySelectorAll('#fine .prod__media').forEach(function(m,i){
+    if(!badges[i])return;
+    var s=document.createElement('span');
+    s.className='badge'+(badges[i]==='Sale'?' badge--sale':'');
+    s.textContent=badges[i];
+    m.appendChild(s);
+  });
+  // a couple in the New Arrivals duo
+  document.querySelectorAll('.split__arr .prod__media').forEach(function(m){
+    var s=document.createElement('span');s.className='badge';s.textContent='New Arrival';m.appendChild(s);
+  });
+
+  document.querySelectorAll('.prod__fav').forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      var on=b.classList.toggle('on');
+      b.setAttribute('aria-pressed',on);
+      b.setAttribute('aria-label',on?'Saved to wishlist':'Add to wishlist');
+    });
+  });
 })();
 </script>
 </body>
