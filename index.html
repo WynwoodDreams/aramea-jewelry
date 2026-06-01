@@ -147,20 +147,32 @@ ul{list-style:none;margin:0;padding:0}
 .insta a:hover svg{transform:scale(1.05)}
 
 /* ===== FOOTER ===== */
-footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
-.foot{display:grid;grid-template-columns:repeat(4,1fr) 1.3fr;gap:clamp(18px,2.5vw,40px);padding:clamp(40px,5vw,64px) 0 36px}
-@media (max-width:860px){.foot{grid-template-columns:1fr 1fr;gap:32px}}
-.foot h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin:0 0 16px;font-weight:500}
-.foot li{margin-bottom:9px}.foot a{font-size:13px;color:var(--ink-soft)}.foot a:hover{color:var(--ink)}
-.foot__news input{width:100%;border:0;border-bottom:1px solid var(--ink);background:transparent;padding:9px 0;font:inherit;font-size:14px;color:var(--ink);outline:none;margin-bottom:14px}
-.foot__news input::placeholder{color:var(--muted)}
-.foot__news .row{display:flex;gap:10px;align-items:center}
-.foot__news .btn{padding:11px 22px}
-.foot__social{display:flex;gap:14px;margin-top:18px}
-.foot__social svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:1.4}
-.foot__bottom{border-top:1px solid var(--line);padding:18px 0 28px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.foot__pay{display:flex;gap:8px}
-.foot__pay span{font-size:9px;letter-spacing:.06em;border:1px solid var(--line);border-radius:3px;padding:3px 7px;color:var(--ink-soft)}
+footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,64px)}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:clamp(24px,4vw,64px);padding:clamp(48px,6vw,76px) 0 44px}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr;gap:36px}}
+@media (max-width:520px){.foot{grid-template-columns:1fr}}
+.foot__brand .brand{grid-column:auto;text-align:left;padding-left:0;display:inline-block;color:#f4f0e8;font-size:26px;letter-spacing:.34em;margin-bottom:18px}
+.foot__brand p{max-width:290px;font-size:14px;line-height:1.7;color:rgba(244,240,232,.5);margin:0}
+.foot h4{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 18px;font-weight:500}
+.foot li{margin-bottom:12px}
+.foot a{font-size:14px;color:rgba(244,240,232,.62);transition:color .2s}
+.foot a:hover{color:#f4f0e8}
+.foot__news p{max-width:248px;font-size:14px;line-height:1.6;color:rgba(244,240,232,.5);margin:0 0 18px}
+.foot__form{display:flex;max-width:290px}
+.foot__form input{flex:1;min-width:0;background:#2a2722;border:0;padding:15px 16px;color:#f4f0e8;font:inherit;font-size:14px;outline:none}
+.foot__form input::placeholder{color:rgba(244,240,232,.4)}
+.foot__form button{flex:none;width:56px;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.foot__form button:hover{background:var(--gold-dark)}
+.foot__form button svg{width:22px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6}
+.foot__bottom{border-top:1px solid rgba(244,240,232,.12);padding:22px 0 32px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.foot__copy{font-size:12.5px;color:rgba(244,240,232,.5)}
+.foot__copy a{color:rgba(244,240,232,.6)}.foot__copy a:hover{color:#f4f0e8}
+.foot__social{display:flex;gap:24px}
+.foot__social a{color:rgba(244,240,232,.82)}
+.foot__social a:hover{color:#fff}
+.foot__social svg{width:18px;height:18px;fill:currentColor}
+.foot__pay{display:flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,240,232,.5)}
+.foot__pay span{background:#f4f0e8;color:var(--ink);border-radius:4px;padding:6px 11px;font-size:11px;letter-spacing:.02em;text-transform:none;font-weight:500}
 
 /* ===== DRAWER ===== */
 .drawer{position:fixed;inset:0;background:var(--bg);z-index:60;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;padding:20px clamp(20px,5vw,40px) 40px}
@@ -482,28 +494,31 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
 <footer id="contact">
   <div class="wrap">
     <div class="foot">
-      <div><h4>Customer Service</h4><ul><li><a href="#">Customer Service</a></li><li><a href="#">Personalisation</a></li><li><a href="#">Privacy Policy</a></li><li><a href="mailto:hello@aramea.miami">Contact (FR)</a></li></ul></div>
-      <div><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Careers</a></li><li><a href="#">Customer Service</a></li><li><a href="#">Our Store</a></li></ul></div>
-      <div><h4>Discover</h4><ul><li><a href="#">Fine Jewellery</a></li><li><a href="#">High Jewellery</a></li><li><a href="#">Watches</a></li><li><a href="#">Bespoke</a></li></ul></div>
-      <div><h4>Legal</h4><ul><li><a href="#">+1 305 446 2780</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#">Warranty</a></li><li><a href="#">Cookie Settings</a></li></ul></div>
+      <div class="foot__brand">
+        <span class="brand">ARAMEA</span>
+        <p>Timeless elegance and brilliant craftsmanship since 2026. Discover our collection of fine jewellery and watches.</p>
+      </div>
+      <div><h4>Customer Service</h4><ul><li><a href="mailto:hello@aramea.miami">Contact Us</a></li><li><a href="#">Shipping &amp; Returns</a></li><li><a href="#">Size Guide</a></li><li><a href="#">Care Instructions</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="#heritage">Our Story</a></li><li><a href="#heritage">Craftsmanship</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Press</a></li></ul></div>
       <div class="foot__news">
         <h4>Stay Connected</h4>
-        <form onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('input').placeholder='✓ Subscribed'">
-          <input type="email" required placeholder="Email Signup" aria-label="Email" />
-          <div class="row"><button type="submit" class="btn btn--dark">Sign Up</button></div>
+        <p>Subscribe to our newsletter for exclusive offers and new collections.</p>
+        <form class="foot__form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('input').placeholder='✓ Subscribed'">
+          <label class="sr" for="footmail">Email</label>
+          <input id="footmail" type="email" required placeholder="Your email" />
+          <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 16"><path d="M1 8h21M16 1l7 7-7 7"/></svg></button>
         </form>
-        <div class="foot__social">
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16 3c.5 2.5 2 4 4.5 4.3V11c-1.7 0-3.2-.5-4.5-1.4V15a6 6 0 1 1-6-6v3.2A2.8 2.8 0 1 0 12 14.8V3z"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></a>
-        </div>
       </div>
     </div>
     <div class="foot__bottom">
-      <div class="foot__pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span></div>
-      <span>© 2026 Aramea Jewellery · Miami · All Rights Reserved</span>
-      <span>Built by Wynwood Dreams</span>
+      <div class="foot__copy">© 2026 Aramea. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp; Conditions</a></div>
+      <div class="foot__social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h2.5V4.5H14c-2.5 0-4 1.6-4 4V11H7.5v3.5H10V22h3.5v-7.5H16l.5-3.5h-3V9c0-.7.3-1 1.5-1z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22 5.8c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1A4 4 0 0 0 12 8.5c0 .3 0 .6.1.9A11.4 11.4 0 0 1 3.8 4.9a4 4 0 0 0 1.2 5.4c-.6 0-1.2-.2-1.8-.5v.1a4 4 0 0 0 3.2 3.9c-.6.2-1.2.2-1.8.1a4 4 0 0 0 3.7 2.8A8 8 0 0 1 2 18.6a11.3 11.3 0 0 0 6.1 1.8c7.4 0 11.4-6.1 11.4-11.4v-.5c.8-.6 1.5-1.3 2-2.1z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.5 8.5h-3V21h3V8.5zM5 3.5A1.8 1.8 0 1 0 5 7a1.8 1.8 0 0 0 0-3.5zM21 21v-6.9c0-3.3-1.8-4.9-4.1-4.9-1.9 0-2.7 1-3.2 1.8V8.5h-3V21h3v-6.5c0-.3 0-.7.1-.9.3-.7.9-1.4 2-1.4 1.4 0 2.1 1 2.1 2.6V21h3z"/></svg></a>
+      </div>
+      <div class="foot__pay">Accepted: <span>Visa</span><span>MC</span><span>Amex</span></div>
     </div>
   </div>
 </footer>
