@@ -74,8 +74,8 @@ ul{list-style:none;margin:0;padding:0}
 .hero__cta{display:flex;gap:14px;flex-wrap:wrap}
 .hero__right{position:relative;overflow:hidden;background:linear-gradient(150deg,#3a342c 0%,#211e19 55%,#0e0c0a 100%);min-height:340px}
 .hero__right::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 62% 38%,rgba(176,147,90,.28),transparent 60%)}
-.hero__right .photo-note{position:absolute;left:18px;bottom:14px;z-index:3;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,240,232,.5)}
-.hero__model{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:4%}
+.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;background:#0e0c0a}
+.hero__model{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;padding:4%}
 .hero__model svg{width:auto;height:88%;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
 .hero__dots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:4;display:flex;gap:9px}
 .hero__dots span{width:7px;height:7px;border-radius:50%;background:rgba(244,240,232,.45)}
@@ -231,6 +231,10 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
       </div>
     </div>
     <div class="hero__right">
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata"
+             poster="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=70&w=1100&h=1300">
+        <source src="https://res.cloudinary.com/dsu7dcqu0/video/upload/v1780352577/create_a_video_of_the_women_in_ngnmmt.mp4" type="video/mp4" />
+      </video>
       <div class="hero__model" aria-hidden="true">
         <!-- editorial jewellery still-life placeholder (swap for model photo) -->
         <svg viewBox="0 0 460 560" xmlns="http://www.w3.org/2000/svg">
@@ -253,7 +257,6 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
           <g transform="translate(300 130)" fill="#fff"><path d="M0 -9 L2 0 L9 2 L2 3 L0 9 L-2 3 L-9 2 L-2 0 Z"/></g>
         </svg>
       </div>
-      <span class="photo-note">Editorial placeholder · swap for campaign photo</span>
       <div class="hero__dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
     </div>
   </div>
@@ -498,9 +501,7 @@ footer{background:var(--cream);margin-top:clamp(36px,5vw,64px)}
     els.forEach(function(el,i){if(ids[i])place(el,u(ids[i],w,h),opts)});
   }
 
-  // Hero — model wearing fine jewellery (hide the SVG still-life + note when it loads)
-  var hero=document.querySelector('.hero__right');
-  if(hero)place(hero,u('1535632066927-ab7c9ab60908',1100,1300),{hide:'.hero__model,.photo-note'});
+  // Hero now uses the campaign video (with SVG still-life as fallback) — no photo overlay here.
 
   // New Arrivals lifestyle strip (portrait)
   fill('.strip a',['1611652022419-a9419f74343d','1635767798638-3e25273a8236','1602173574767-37ac01994b2a','1573408301185-9146fe634ad0'],700,940);
