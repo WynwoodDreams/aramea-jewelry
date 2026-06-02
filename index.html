@@ -705,5 +705,99 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   });
 })();
 </script>
+
+<!-- ===================================================================
+     SHOPIFY BUY BUTTON INTEGRATION  (Option A)
+     -------------------------------------------------------------------
+     The storefront stays exactly as designed; Shopify handles the cart,
+     inventory, payments, tax & shipping via its hosted checkout.
+
+     TO GO LIVE LATER, fill in the 3 places marked  >>> FILL IN <<< :
+
+     1) SHOPIFY.domain              your-store.myshopify.com
+     2) SHOPIFY.storefrontToken     Admin > Settings > Apps and sales
+                                    channels > Develop apps > create an
+                                    app > Storefront API access token
+     3) SHOPIFY.variants            map each product card (by its exact
+                                    on-page name) to its Shopify variant
+                                    ID. Find a variant ID in Admin on the
+                                    product page, or via the Storefront API.
+                                    Format: 'gid://shopify/ProductVariant/1234567890'
+
+     Until these are filled, "Add to bag" stays a no-op and the site
+     behaves as a static page (no errors).
+     =================================================================== -->
+<script>
+window.SHOPIFY = {
+  domain: '',            /* >>> FILL IN <<<  e.g. 'aramea.myshopify.com' */
+  storefrontToken: '',   /* >>> FILL IN <<<  Storefront API access token */
+  variants: {            /* >>> FILL IN <<<  'Product name on page': 'gid://shopify/ProductVariant/ID' */
+    'Aurora Diamond Pendant': '',
+    'Celestial Sapphire Ring': ''
+    /* add the rest of your product cards here, keyed by their exact .prod__name text */
+  }
+};
+
+(function(){
+  var C = window.SHOPIFY;
+  if(!C.domain || !C.storefrontToken){
+    console.info('[Aramea] Shopify not configured yet — cart disabled. Fill in window.SHOPIFY to enable.');
+    return; /* graceful no-op: site works as static */
+  }
+
+  /* lazy-load the Shopify Buy SDK */
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  s.onload = init;
+  document.head.appendChild(s);
+
+  function init(){
+    var client = ShopifyBuy.buildClient({ domain: C.domain, storefrontAccessToken: C.storefrontToken });
+    var ui = ShopifyBuy.UI.init(client);
+    var bagCountEl = document.querySelector('.bag-count');
+
+    /* one persistent cart component (Shopify's slide-out drawer + checkout) */
+    ui.createComponent('cart', {
+      node: document.body,
+      options: {
+        cart: {
+          events: {
+            afterRender: function(c){ updateCount(c.model.lineItems); },
+            updateItemQuantity: function(c){ updateCount(c.model.lineItems); }
+          },
+          text: { title: 'Your Bag', button: 'Checkout' }
+        }
+      }
+    }).then(function(cart){
+
+      /* BAG link in the header opens the cart drawer */
+      document.querySelectorAll('a.lbl').forEach(function(a){
+        if(/bag/i.test(a.textContent)){
+          a.addEventListener('click', function(e){ e.preventDefault(); cart.open(); });
+        }
+      });
+
+      /* every product card's bag icon adds its mapped variant */
+      document.querySelectorAll('#fine .prod').forEach(function(card){
+        var name = (card.querySelector('.prod__name')||{}).textContent;
+        var id = C.variants[name && name.trim()];
+        var btn = card.querySelector('.prod__bag');
+        if(!btn) return;
+        if(!id){ btn.title = 'Not yet linked to Shopify'; return; }
+        btn.addEventListener('click', function(){
+          cart.addVariantToCart({ id: id }, 1).then(function(){ cart.open(); });
+        });
+      });
+    });
+
+    function updateCount(items){
+      if(!bagCountEl) return;
+      var n = (items||[]).reduce(function(t,i){ return t + i.quantity; }, 0);
+      bagCountEl.textContent = '(' + n + ')';
+    }
+  }
+})();
+</script>
 </body>
 </html>
