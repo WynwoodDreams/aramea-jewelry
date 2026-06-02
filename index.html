@@ -304,8 +304,10 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
       </div>
     </div>
     <div class="hero__right">
-      <img class="hero__photo" alt="" loading="lazy" onerror="this.remove()"
-           src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=70&w=1100&h=1300" />
+      <video class="hero__video" muted loop playsinline preload="metadata"
+             poster="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=70&w=1100&h=1300">
+        <source src="https://res.cloudinary.com/dsu7dcqu0/video/upload/v1780421672/jewlery_show_qmyzgd.mp4" type="video/mp4" />
+      </video>
       <div class="hero__model" aria-hidden="true">
         <svg viewBox="0 0 300 360" xmlns="http://www.w3.org/2000/svg"><g transform="translate(150 170)"><ellipse cx="0" cy="46" rx="70" ry="74" fill="none" stroke="url(#gold)" stroke-width="16"/><circle cx="0" cy="-28" r="34" fill="url(#sapp)" stroke="#fff" stroke-width="1.6"/><circle cx="-10" cy="-38" r="8" fill="#fff" opacity=".6"/></g></svg>
       </div>
@@ -599,12 +601,17 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   if(track){
     var n=track.children.length, idx=0, timer=null;
     var dots=[].slice.call(document.querySelectorAll('#heroDots button'));
-    var vid=track.querySelector('.hero__video');
+    var slides=[].slice.call(track.children);
     function go(i){
       idx=(i+n)%n;
       track.style.transform='translateX('+(-idx*100)+'%)';
       dots.forEach(function(d,k){d.classList.toggle('on',k===idx)});
-      if(vid){ if(idx===0){var p=vid.play();if(p&&p.catch)p.catch(function(){});} else vid.pause(); }
+      slides.forEach(function(s,k){
+        var v=s.querySelector('.hero__video');
+        if(!v)return;
+        if(k===idx){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+        else v.pause();
+      });
     }
     function start(){stop();timer=setInterval(function(){go(idx+1)},6000)}
     function stop(){if(timer){clearInterval(timer);timer=null}}
