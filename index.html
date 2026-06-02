@@ -225,7 +225,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
 <header class="site-header">
   <div class="topbar">
     <div class="topbar__menu"><button id="menuOpen" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
-    <a class="brand brand--logo" href="#top" aria-label="Aramea — home"><img class="logo" src="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780353602/ChatGPT_Image_May_27_2026_01_40_07_PM_janbkj.png?u=2" alt="Aramea" /></a>
+    <a class="brand brand--logo" href="#top" aria-label="Aramea — home"><img class="logo" src="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png" alt="Aramea" /></a>
     <div class="topbar__uti">
       <a href="#" class="lbl">Account</a>
       <a href="#" class="lbl">Wish List (0)</a>
@@ -246,7 +246,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
 </header>
 
 <aside class="drawer" id="drawer" aria-hidden="true">
-  <div class="drawer__top"><span class="brand brand--logo"><img class="logo" src="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780353602/ChatGPT_Image_May_27_2026_01_40_07_PM_janbkj.png?u=2" alt="Aramea" /></span><button id="menuClose" style="font-size:13px;letter-spacing:.2em;text-transform:uppercase">Close ✕</button></div>
+  <div class="drawer__top"><span class="brand brand--logo"><img class="logo" src="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png" alt="Aramea" /></span><button id="menuClose" style="font-size:13px;letter-spacing:.2em;text-transform:uppercase">Close ✕</button></div>
   <nav class="drawer__nav"><a href="#arrivals">Collections</a><a href="#fine">Fine Jewellery</a><a href="#fine">Watches</a><a href="#heritage">Bespoke</a><a href="#fine">Gifts</a></nav>
 </aside>
 
@@ -304,8 +304,10 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
       </div>
     </div>
     <div class="hero__right">
-      <img class="hero__photo" alt="" loading="lazy" onerror="this.remove()"
-           src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=70&w=1100&h=1300" />
+      <video class="hero__video" muted loop playsinline preload="metadata"
+             poster="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=70&w=1100&h=1300">
+        <source src="https://res.cloudinary.com/dsu7dcqu0/video/upload/v1780421672/jewlery_show_qmyzgd.mp4" type="video/mp4" />
+      </video>
       <div class="hero__model" aria-hidden="true">
         <svg viewBox="0 0 300 360" xmlns="http://www.w3.org/2000/svg"><g transform="translate(150 170)"><ellipse cx="0" cy="46" rx="70" ry="74" fill="none" stroke="url(#gold)" stroke-width="16"/><circle cx="0" cy="-28" r="34" fill="url(#sapp)" stroke="#fff" stroke-width="1.6"/><circle cx="-10" cy="-38" r="8" fill="#fff" opacity=".6"/></g></svg>
       </div>
@@ -554,7 +556,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   <div class="wrap">
     <div class="foot">
       <div class="foot__brand">
-        <img class="logo" src="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780353602/ChatGPT_Image_May_27_2026_01_40_07_PM_janbkj.png?u=2" alt="Aramea" />
+        <img class="logo" src="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png" alt="Aramea" />
         <p>Timeless elegance and brilliant craftsmanship since 2026. Discover our collection of fine jewellery and watches.</p>
       </div>
       <div><h4>Customer Service</h4><ul><li><a href="mailto:hello@aramea.miami">Contact Us</a></li><li><a href="#">Shipping &amp; Returns</a></li><li><a href="#">Size Guide</a></li><li><a href="#">Care Instructions</a></li></ul></div>
@@ -599,12 +601,17 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   if(track){
     var n=track.children.length, idx=0, timer=null;
     var dots=[].slice.call(document.querySelectorAll('#heroDots button'));
-    var vid=track.querySelector('.hero__video');
+    var slides=[].slice.call(track.children);
     function go(i){
       idx=(i+n)%n;
       track.style.transform='translateX('+(-idx*100)+'%)';
       dots.forEach(function(d,k){d.classList.toggle('on',k===idx)});
-      if(vid){ if(idx===0){var p=vid.play();if(p&&p.catch)p.catch(function(){});} else vid.pause(); }
+      slides.forEach(function(s,k){
+        var v=s.querySelector('.hero__video');
+        if(!v)return;
+        if(k===idx){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+        else v.pause();
+      });
     }
     function start(){stop();timer=setInterval(function(){go(idx+1)},6000)}
     function stop(){if(timer){clearInterval(timer);timer=null}}
