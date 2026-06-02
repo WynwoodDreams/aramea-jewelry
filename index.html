@@ -77,6 +77,7 @@ ul{list-style:none;margin:0;padding:0}
 .hero__grid{display:grid;grid-template-columns:1fr 1.18fr;min-height:clamp(440px,52vw,600px)}
 @media (max-width:820px){.hero__grid{grid-template-columns:1fr}}
 .hero__left{background:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,6vw,84px) clamp(28px,5vw,72px)}
+.hero__logo{width:clamp(76px,8vw,104px);height:clamp(76px,8vw,104px);border-radius:50%;object-fit:cover;display:block;margin-bottom:22px}
 .hero__left h1{font-family:var(--display);font-weight:500;font-size:clamp(44px,6vw,82px);line-height:.96;letter-spacing:.01em;text-transform:uppercase;margin:0}
 .hero__left p{max-width:340px;color:var(--ink-soft);font-size:15px;margin:22px 0 32px}
 .hero__cta{display:flex;gap:14px;flex-wrap:wrap}
@@ -227,7 +228,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   <div class="topbar">
     <div class="topbar__left">
       <div class="topbar__menu"><button id="menuOpen" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
-      <a class="brand brand--logo" href="#top" aria-label="Aramea — home"><img class="logo" src="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png" alt="Aramea" /></a>
+      <a class="brand" href="#top" aria-label="Aramea — home">Aramea</a>
     </div>
     <div class="topbar__uti">
       <a href="#" class="lbl">Account</a>
@@ -259,6 +260,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   <div class="hero__track" id="heroTrack">
   <div class="hero__grid">
     <div class="hero__left">
+      <img class="hero__logo" src="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png" alt="Aramea" />
       <h1>The Lumina<br>Collection</h1>
       <p>Discover timeless elegance and brilliant craftsmanship. Since 2026.</p>
       <div class="hero__cta">
