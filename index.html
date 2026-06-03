@@ -312,6 +312,14 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
 .qv__mat{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d8794;margin-bottom:18px}
 .qv__desc{font-size:14.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:26px}
 .qv__close{position:absolute;top:14px;right:16px;z-index:3;width:40px;height:40px;border-radius:50%;background:rgba(244,240,232,.92);display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;box-shadow:0 6px 18px -8px rgba(0,0,0,.4)}
+.qv__actions{display:flex;gap:12px}
+.qv__actions .btn{flex:1}
+.qv__fav{gap:8px}
+.qv__fav svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;transition:fill .2s,stroke .2s}
+.qv__fav.on{box-shadow:inset 0 0 0 1px var(--gold);color:var(--gold-dark)}
+.qv__fav.on svg{fill:var(--gold);stroke:var(--gold)}
+.qv__fav.on:hover{background:var(--gold);color:#fff}
+.qv__fav.on:hover svg{fill:#fff;stroke:#fff}
 
 /* ===== CART DRAWER ===== */
 .cart{position:fixed;top:0;right:0;height:100%;width:min(420px,92vw);background:var(--bg);z-index:80;transform:translateX(100%);transition:transform .4s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px -30px rgba(0,0,0,.5)}
@@ -818,7 +826,13 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
       <div class="qv__price" id="qvPrice"></div>
       <div class="qv__mat" id="qvMat"></div>
       <p class="qv__desc" id="qvDesc"></p>
-      <button class="btn btn--dark" id="qvAdd">Add to Bag</button>
+      <div class="qv__actions">
+        <button class="btn btn--dark" id="qvAdd">Add to Bag</button>
+        <button class="btn btn--out qv__fav" id="qvFav" aria-pressed="false" aria-label="Add to wishlist">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6C19 16.5 12 21 12 21Z"/></svg>
+          <span class="qv__fav-t">Save</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -917,6 +931,17 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     var heroEl=document.querySelector('.hero');
     heroEl.addEventListener('mouseenter',stop);
     heroEl.addEventListener('mouseleave',start);
+    /* touch swipe */
+    var sx=0,sy=0,swiping=false;
+    heroEl.addEventListener('touchstart',function(e){
+      var t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;swiping=true;stop();
+    },{passive:true});
+    heroEl.addEventListener('touchend',function(e){
+      if(!swiping)return;swiping=false;
+      var t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){go(dx<0?idx+1:idx-1);}
+      start();
+    },{passive:true});
     start();
   }
 
@@ -1138,7 +1163,8 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   var qvEl=document.getElementById('qv');
   var qvMedia=document.getElementById('qvMedia'),qvName=document.getElementById('qvName'),
       qvPrice=document.getElementById('qvPrice'),qvMat=document.getElementById('qvMat'),
-      qvDesc=document.getElementById('qvDesc'),qvAdd=document.getElementById('qvAdd');
+      qvDesc=document.getElementById('qvDesc'),qvAdd=document.getElementById('qvAdd'),
+      qvFav=document.getElementById('qvFav'),qvFavT=qvFav.querySelector('.qv__fav-t');
   var blurb={
     'Aurora Diamond Pendant':'A brilliant-cut diamond suspended on a fine cable chain — understated radiance for every day.',
     'Celestial Sapphire Ring':'A deep Ceylon sapphire framed in 18K gold, hand-set by our Miami atelier.',
@@ -1154,11 +1180,22 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     qvCurrent=p;
     qvMedia.innerHTML=p.svg;qvName.textContent=p.name;qvPrice.textContent=p.priceText;
     qvMat.textContent=p.mat;qvDesc.textContent=blurb[p.name]||'A signature Aramea piece, designed in Miami and finished entirely by hand.';
+    setQvFav(wish.indexOf(p.name)>-1);
     qvEl.classList.add('open');scrim.classList.add('open');document.body.classList.add('no-scroll');
+  }
+  function setQvFav(on){
+    qvFav.classList.toggle('on',on);qvFav.setAttribute('aria-pressed',on);
+    qvFav.setAttribute('aria-label',on?'Saved to wishlist':'Add to wishlist');
+    if(qvFavT)qvFavT.textContent=on?'Saved':'Save';
   }
   function closeQV(){qvEl.classList.remove('open');maybeHideScrim();document.body.classList.remove('no-scroll')}
   document.getElementById('qvClose').addEventListener('click',closeQV);
   qvAdd.addEventListener('click',function(){if(qvCurrent){addToCart(qvCurrent.name);closeQV()}});
+  qvFav.addEventListener('click',function(){
+    if(!qvCurrent)return;
+    var on=!qvFav.classList.contains('on');
+    setQvFav(on);setFavByName(qvCurrent.name,on);toggleWish(qvCurrent.name,on);
+  });
   products.forEach(function(p){
     p.media.addEventListener('click',function(e){
       if(e.target.closest('.prod__icons'))return; // let icon buttons do their thing
