@@ -100,12 +100,10 @@ ul{list-style:none;margin:0;padding:0}
   .topbar__menu{display:flex}
   .topbar__menu button{display:flex;color:var(--ink)}
   .topbar__menu svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.4}
-  .topbar__uti{gap:22px}
-  .uti-account,.uti-saved{display:none}
-  .uti__t{display:none}
-  .uti__ic{display:block}
-  .topbar__uti .lbl{display:inline-flex;align-items:center;gap:4px}
-  .topbar__uti .bag-count{font-size:10px;letter-spacing:0}
+  .topbar__uti{gap:14px;font-size:10px;letter-spacing:.12em}
+  .uti-account,.uti-search{display:none}
+  .brand__sub{display:none}
+  .brand__logo{width:64px;height:64px}
   .announce{gap:10px;font-size:10px}
 }
 
@@ -395,7 +393,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
       <span class="brand__sub">Jewelry &amp; Accessories</span>
     </a>
     <div class="topbar__uti">
-      <button class="lbl" id="searchOpen" aria-label="Search"><svg class="uti__ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg><span class="uti__t">Search</span></button>
+      <button class="lbl uti-search" id="searchOpen" aria-label="Search"><svg class="uti__ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg><span class="uti__t">Search</span></button>
       <a href="#" class="lbl uti-account"><span class="uti__t">Account</span></a>
       <button class="lbl uti-saved" id="wishOpen" aria-label="Saved items"><span class="uti__t">Saved</span> <span class="wish-count">(0)</span></button>
       <a href="#" class="lbl" id="bagLink" aria-label="Bag"><svg class="uti__ic" viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="uti__t">Bag</span> <span class="bag-count">(0)</span></a>
