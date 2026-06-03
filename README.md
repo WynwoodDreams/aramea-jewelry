@@ -17,17 +17,34 @@ Editorial e-commerce storefront for **ARAMEA — Jewelry & Accessories**. Single
 
 ```
 .
-├── index.html        ← the entire site, one file (190KB)
+├── index.html        ← the entire site, one file
 ├── vercel.json       ← clean URLs, security headers, cache strategy
-├── .vercelignore     ← excludes rebuild source from deploys
 ├── .gitignore
-├── README.md
-└── src/              ← Tailwind rebuild source (local-only)
-    ├── input.css
-    └── tailwind.config.js
+└── README.md
 ```
 
-`index.html` is fully self-contained — Tailwind pre-compiled and inlined, all 47 product images as inline SVG placeholders, AR seal logo as inline SVG, favicon inline. Only external dependency is Google Fonts. No build step required.
+`index.html` is fully self-contained — all styles, scripts, SVG product
+placeholders, AR seal logo and favicon are inline. External dependencies:
+Google Fonts (CDN), plus hotlinked Unsplash photos and a Cloudinary logo/video
+that fade in over the SVG fallbacks. No build step required.
+
+### What's on the page
+- Sticky header with primary nav, **search overlay**, account & bag links
+- Auto-playing **hero carousel** (3 slides, video + SVG fallback)
+- **Trust band** — free shipping, returns, lifetime warranty, certification
+- New Arrivals strip + **Featured Collection** product grid
+- Heritage / atelier split with New Arrivals duo
+- **"Crafted for Forever"** value-prop section + customer **reviews**
+- Instagram grid, newsletter footer
+
+### Interactive features (vanilla JS, no dependencies)
+- **Product quick-view** modal (click any product image)
+- **Local cart** with localStorage persistence + slide-out drawer — works
+  standalone, and steps aside automatically once Shopify is configured
+- **Wishlist** favourites, persisted to localStorage
+- **Search** overlay that filters products live
+- SEO: Open Graph / Twitter cards, JSON-LD `JewelryStore` structured data,
+  canonical URL
 
 ---
 
@@ -50,7 +67,7 @@ Currently shows an editorial tearsheet SVG placeholder. To swap in a real photo:
 2. In `index.html`, search for `alt="Aramea — editorial tearsheet"`
 3. Replace the long `src="data:image/svg+xml;utf8,…"` with `src="/hero.jpg"`
 
-### Product cards (47 placeholders)
+### Product cards
 Each card is labeled with its piece name. To swap one:
 1. Search the HTML for the piece name (e.g. `Verde Eternal`, `Iris Multi-Stone`)
 2. Replace the surrounding `src="data:image/svg+xml;utf8,…"` with your image path
@@ -80,28 +97,22 @@ The AR seal appears in 3 sizes (header, hero bridge, footer) plus the favicon. A
 
 ---
 
-## Rebuilding Tailwind (only if adding new utility classes)
+## Styling
 
-The CSS in `index.html` is pre-compiled and tree-shaken. If you add a new Tailwind utility:
-
-```bash
-cd src
-npx tailwindcss -i input.css -o output.css --minify
-```
-
-Then copy the contents of `output.css` into the `<style id="tw-compiled">…</style>` block in `index.html`.
-
-If you only write custom CSS (in the second `<style>` block at the top of `index.html`), you can ignore the `src/` folder entirely.
+All CSS lives in a single hand-written `<style>` block at the top of
+`index.html` using CSS custom properties (see Brand spec). There is no build
+step and no framework — edit the styles directly.
 
 ---
 
 ## Tech notes
 
-- **Zero JS dependencies** — ~30 lines of vanilla JS for the mobile menu drawer
-- **Zero external image dependencies** — all 47 product placeholders + hero + logos are inline SVG
+- **Zero JS dependencies** — vanilla JS for the drawer, hero carousel, quick-view, local cart, wishlist and search
+- **Inline SVG placeholders** for every product, with real photos fading in on top (and removed gracefully on error)
 - **No build step required** for the deployed site
-- **Mobile-first responsive** — horizontal scroll-snap galleries on phones, sticky drawer menu, 44×44 touch targets
-- **A11y** — semantic HTML, ARIA labels, Escape-to-close menu
+- **Mobile-first responsive** — sticky drawer menu, 44×44 touch targets
+- **A11y** — semantic HTML, ARIA labels, `:focus-visible` styling, Escape-to-close on every overlay
+- **SEO** — Open Graph/Twitter meta, JSON-LD structured data, canonical URL
 
 ---
 

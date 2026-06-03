@@ -6,8 +6,40 @@
 <title>ARAMEA — Fine Jewellery · Miami</title>
 <meta name="description" content="ARAMEA. Timeless fine jewellery — 925 silver, 18K gold and diamonds, designed in Miami. For forever moments." />
 <meta name="theme-color" content="#f4f0e8" />
+<link rel="canonical" href="https://aramea.miami/" />
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ARAMEA" />
+<meta property="og:title" content="ARAMEA — Fine Jewellery · Miami" />
+<meta property="og:description" content="Timeless fine jewellery — 925 silver, 18K gold and diamonds, designed in Miami. For forever moments." />
+<meta property="og:url" content="https://aramea.miami/" />
+<meta property="og:image" content="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ARAMEA — Fine Jewellery · Miami" />
+<meta name="twitter:description" content="Timeless fine jewellery — 925 silver, 18K gold and diamonds, designed in Miami." />
+<meta name="twitter:image" content="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png" />
 
 <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f4f0e8'/><text x='50' y='66' font-family='serif' font-size='52' fill='%23211e19' text-anchor='middle'>A</text></svg>" />
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JewelryStore",
+  "name": "ARAMEA",
+  "description": "Timeless fine jewellery — 925 silver, 18K gold and diamonds, designed in Miami.",
+  "url": "https://aramea.miami/",
+  "image": "https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png",
+  "email": "hello@aramea.miami",
+  "address": { "@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL", "addressCountry": "US" },
+  "sameAs": [
+    "https://www.instagram.com/arameajewellery",
+    "https://www.facebook.com/arameajewellery"
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -215,6 +247,99 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
 
 /* shared SVG defs holder */
 .defs{position:absolute;width:0;height:0;overflow:hidden}
+
+/* ===== FOCUS VISIBLE (keyboard users) ===== */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+:focus:not(:focus-visible){outline:none}
+
+/* ===== TRUST BAND ===== */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream)}
+.trust__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);padding:clamp(22px,3vw,34px) 0}
+@media (max-width:760px){.trust__grid{grid-template-columns:1fr 1fr;gap:22px}}
+.trust__item{display:flex;align-items:center;gap:14px;justify-content:center;text-align:left}
+.trust__item svg{width:30px;height:30px;stroke:var(--gold-dark);fill:none;stroke-width:1.3;flex:none}
+.trust__item b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);font-weight:500;margin-bottom:3px}
+.trust__item span{font-size:12px;color:var(--ink-soft)}
+
+/* ===== VALUE PROP ===== */
+.value{text-align:center}
+.value__intro{max-width:620px;margin:0 auto 40px}
+.value__intro p{color:var(--ink-soft);font-size:16px;margin:14px 0 0}
+.value__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px)}
+@media (max-width:760px){.value__grid{grid-template-columns:1fr}}
+.value__card{padding:8px}
+.value__card svg{width:42px;height:42px;stroke:var(--gold-dark);fill:none;stroke-width:1.2;margin:0 auto 18px}
+.value__card h3{font-family:var(--display);font-weight:600;font-size:22px;margin:0 0 10px}
+.value__card p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.65}
+
+/* ===== REVIEWS ===== */
+.reviews{background:var(--cream)}
+.rev__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px)}
+@media (max-width:760px){.rev__grid{grid-template-columns:1fr}}
+.rev__card{background:var(--card);border:1px solid var(--line);padding:30px 28px;display:flex;flex-direction:column}
+.rev__stars{display:flex;gap:3px;margin-bottom:16px}
+.rev__stars svg{width:15px;height:15px;fill:var(--gold)}
+.rev__card blockquote{margin:0 0 20px;font-family:var(--display);font-size:19px;line-height:1.5;color:var(--ink);font-style:italic;flex:1}
+.rev__who{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.rev__who span{color:var(--gold-dark)}
+
+/* ===== QUICK VIEW + CART DRAWER (shared scrim) ===== */
+.scrim{position:fixed;inset:0;background:rgba(20,17,13,.5);z-index:70;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.scrim.open{opacity:1;visibility:visible}
+
+.qv{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%);width:min(880px,92vw);max-height:90vh;overflow:auto;background:var(--bg);z-index:80;opacity:0;visibility:hidden;transition:opacity .35s,transform .35s,visibility .35s;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+.qv.open{opacity:1;visibility:visible;transform:translate(-50%,-50%)}
+.qv__grid{display:grid;grid-template-columns:1fr 1fr}
+@media (max-width:680px){.qv__grid{grid-template-columns:1fr}}
+.qv__media{position:relative;aspect-ratio:1/1;background:var(--card);overflow:hidden;border-right:1px solid var(--line)}
+.qv__media svg,.qv__media img{width:100%;height:100%;object-fit:cover}
+.qv__body{padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;justify-content:center}
+.qv__body h3{font-family:var(--display);font-weight:600;font-size:clamp(26px,4vw,34px);margin:0 0 8px}
+.qv__price{font-family:var(--display);font-weight:600;font-size:24px;color:var(--gold-dark);margin-bottom:14px}
+.qv__mat{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d8794;margin-bottom:18px}
+.qv__desc{font-size:14.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:26px}
+.qv__close{position:absolute;top:14px;right:16px;z-index:3;width:40px;height:40px;border-radius:50%;background:rgba(244,240,232,.92);display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;box-shadow:0 6px 18px -8px rgba(0,0,0,.4)}
+
+/* ===== CART DRAWER ===== */
+.cart{position:fixed;top:0;right:0;height:100%;width:min(420px,92vw);background:var(--bg);z-index:80;transform:translateX(100%);transition:transform .4s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px -30px rgba(0,0,0,.5)}
+.cart.open{transform:translateX(0)}
+.cart__head{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-bottom:1px solid var(--line)}
+.cart__head h3{font-family:var(--display);font-weight:600;font-size:22px;margin:0}
+.cart__head button{font-size:22px;line-height:1}
+.cart__items{flex:1;overflow:auto;padding:8px 24px}
+.cart__empty{color:var(--ink-soft);font-size:14px;text-align:center;padding:48px 0}
+.ci{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ci__media{width:64px;height:64px;flex:none;background:var(--card);border:1px solid var(--line);overflow:hidden}
+.ci__media svg,.ci__media img{width:100%;height:100%;object-fit:cover}
+.ci__b{flex:1;min-width:0}
+.ci__name{font-family:var(--display);font-weight:600;font-size:16px}
+.ci__price{font-size:13px;color:var(--gold-dark);margin-top:2px}
+.ci__qty{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:13px}
+.ci__qty button{width:24px;height:24px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
+.ci__rm{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.ci__rm:hover{color:#c0392b}
+.cart__foot{border-top:1px solid var(--line);padding:22px 24px}
+.cart__tot{display:flex;justify-content:space-between;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.cart__tot b{font-family:var(--display);font-size:20px}
+.cart__foot .btn{width:100%}
+.cart__note{font-size:11px;color:var(--muted);text-align:center;margin-top:12px}
+
+/* ===== SEARCH OVERLAY ===== */
+.search{position:fixed;inset:0;z-index:80;background:rgba(244,240,232,.97);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;padding:clamp(60px,12vh,140px) clamp(20px,5vw,40px) 40px}
+.search.open{opacity:1;visibility:visible}
+.search__bar{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--ink);padding-bottom:14px}
+.search__bar input{flex:1;background:none;border:0;outline:none;font-family:var(--display);font-size:clamp(24px,4vw,40px);color:var(--ink)}
+.search__bar input::placeholder{color:var(--muted)}
+.search__close{font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+.search__res{max-width:760px;margin:26px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.search__res{grid-template-columns:1fr}}
+.search__res a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);background:var(--card)}
+.search__res a:hover{border-color:var(--gold)}
+.search__res .nm{font-family:var(--display);font-size:17px;font-weight:600}
+.search__res .pr{font-size:13px;color:var(--gold-dark)}
+.search__none{max-width:760px;margin:26px auto 0;color:var(--ink-soft);font-size:15px}
+.prod__media{cursor:pointer}
+.no-scroll{overflow:hidden}
 </style>
 </head>
 <body>
@@ -248,7 +373,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
       <span class="brand__sub">Jewelry &amp; Accessories</span>
     </a>
     <div class="topbar__uti">
-      <button class="lbl" aria-label="Search">Search</button>
+      <button class="lbl" id="searchOpen" aria-label="Search">Search</button>
       <a href="#" class="lbl">Account</a>
       <a href="#" class="lbl">Bag <span class="bag-count">(0)</span></a>
     </div>
@@ -257,7 +382,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
 
 <aside class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer__top"><span class="brand brand--logo"><img class="logo" src="https://res.cloudinary.com/dsu7dcqu0/image/upload/v1780421515/ar_logo_2026_p4sdra.png" alt="Aramea" /></span><button id="menuClose" style="font-size:13px;letter-spacing:.2em;text-transform:uppercase">Close ✕</button></div>
-  <nav class="drawer__nav"><a href="#arrivals">Collections</a><a href="#fine">Fine Jewellery</a><a href="#fine">Watches</a><a href="#heritage">Bespoke</a><a href="#fine">Gifts</a></nav>
+  <nav class="drawer__nav"><a href="#arrivals">Occasions</a><a href="#fine">Shop</a><a href="#fine">All Pieces</a><a href="#fine">Gifts</a><a href="#heritage">Story</a></nav>
 </aside>
 
 <main id="top">
@@ -351,6 +476,30 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   </div>
   <button class="hero__arrow prev" id="heroPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
   <button class="hero__arrow next" id="heroNext" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</section>
+
+<!-- ===== TRUST BAND ===== -->
+<section class="trust" aria-label="Why shop with Aramea">
+  <div class="wrap">
+    <div class="trust__grid">
+      <div class="trust__item">
+        <svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 9h3l2 3v3h-5z"/><circle cx="7" cy="17" r="1.6"/><circle cx="18" cy="17" r="1.6"/></svg>
+        <div><b>Free Shipping</b><span>Complimentary &amp; insured</span></div>
+      </div>
+      <div class="trust__item">
+        <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 5v4h4"/></svg>
+        <div><b>30-Day Returns</b><span>Easy, no-questions exchange</span></div>
+      </div>
+      <div class="trust__item">
+        <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div><b>Lifetime Warranty</b><span>Crafted to last forever</span></div>
+      </div>
+      <div class="trust__item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>
+        <div><b>Certified Authentic</b><span>925 silver · 18K gold</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ===== NEW ARRIVALS STRIP ===== -->
@@ -546,6 +695,61 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   </div>
 </section>
 
+<!-- ===== VALUE PROP ===== -->
+<section class="sec value">
+  <div class="wrap">
+    <div class="value__intro">
+      <span class="sec__eyebrow">The Aramea Difference</span>
+      <h2 class="sec__title" style="margin-bottom:0">Crafted for Forever</h2>
+      <p>Every Aramea piece is designed in Miami and finished by hand — built on ethically sourced materials and a promise that lasts a lifetime.</p>
+    </div>
+    <div class="value__grid">
+      <div class="value__card fade-in">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 14.5 7.1 17.2l.9-5.5-4-3.9L9.5 7z"/></svg>
+        <h3>Ethically Sourced</h3>
+        <p>Conflict-free diamonds and responsibly mined gold, traceable from origin to finished piece.</p>
+      </div>
+      <div class="value__card fade-in">
+        <svg viewBox="0 0 24 24"><path d="M3 21l4-1 11-11-3-3L4 17z"/><path d="M14 6l3 3"/></svg>
+        <h3>Handcrafted in Miami</h3>
+        <p>Each design is set and polished in our atelier by master jewellers with decades of craft.</p>
+      </div>
+      <div class="value__card fade-in">
+        <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Lifetime Guarantee</h3>
+        <p>Complimentary cleaning, resizing and repair — your piece cared for, always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="sec reviews">
+  <div class="wrap">
+    <div class="value__intro">
+      <span class="sec__eyebrow">Loved by Thousands</span>
+      <h2 class="sec__title" style="margin-bottom:0">What Our Clients Say</h2>
+    </div>
+    <div class="rev__grid">
+      <figure class="rev__card fade-in">
+        <div class="rev__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></div>
+        <blockquote>“The Aurora pendant exceeded every expectation. The craftsmanship is impeccable — it's become the piece I never take off.”</blockquote>
+        <figcaption class="rev__who">Isabella M. · <span>Verified Buyer</span></figcaption>
+      </figure>
+      <figure class="rev__card fade-in">
+        <div class="rev__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></div>
+        <blockquote>“I commissioned a bespoke ring for our anniversary. The atelier team made the whole experience feel personal and effortless.”</blockquote>
+        <figcaption class="rev__who">Daniel R. · <span>Verified Buyer</span></figcaption>
+      </figure>
+      <figure class="rev__card fade-in">
+        <div class="rev__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg><svg viewBox="0 0 12 12"><path d="M6 0l1.6 3.9L12 4.3 8.7 7l1 4.3L6 9 2.3 11.3l1-4.3L0 4.3l4.4-.4z"/></svg></div>
+        <blockquote>“Beautiful packaging, fast insured shipping, and a sapphire that sparkles like nothing I've owned. Worth every cent.”</blockquote>
+        <figcaption class="rev__who">Sofia L. · <span>Verified Buyer</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ===== INSTAGRAM ===== -->
 <section class="sec">
   <div class="wrap">
@@ -560,6 +764,47 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   </div>
 </section>
 </main>
+
+<!-- ===== SEARCH OVERLAY ===== -->
+<div class="search" id="search" role="dialog" aria-modal="true" aria-label="Search products">
+  <div class="search__bar">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
+    <input id="searchInput" type="search" placeholder="Search for rings, pendants…" autocomplete="off" />
+    <button class="search__close" id="searchClose">Close</button>
+  </div>
+  <div class="search__res" id="searchRes" aria-live="polite"></div>
+  <p class="search__none" id="searchNone" hidden>No pieces match your search.</p>
+</div>
+
+<!-- ===== QUICK VIEW ===== -->
+<div class="scrim" id="scrim"></div>
+<div class="qv" id="qv" role="dialog" aria-modal="true" aria-label="Product quick view">
+  <button class="qv__close" id="qvClose" aria-label="Close">✕</button>
+  <div class="qv__grid">
+    <div class="qv__media" id="qvMedia"></div>
+    <div class="qv__body">
+      <h3 id="qvName"></h3>
+      <div class="qv__price" id="qvPrice"></div>
+      <div class="qv__mat" id="qvMat"></div>
+      <p class="qv__desc" id="qvDesc"></p>
+      <button class="btn btn--dark" id="qvAdd">Add to Bag</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CART DRAWER ===== -->
+<aside class="cart" id="cart" role="dialog" aria-modal="true" aria-label="Shopping bag">
+  <div class="cart__head">
+    <h3>Your Bag</h3>
+    <button id="cartClose" aria-label="Close bag">✕</button>
+  </div>
+  <div class="cart__items" id="cartItems"></div>
+  <div class="cart__foot">
+    <div class="cart__tot"><span>Subtotal</span><b id="cartTotal">$0</b></div>
+    <button class="btn btn--dark" id="cartCheckout">Checkout</button>
+    <p class="cart__note">Shipping &amp; taxes calculated at checkout</p>
+  </div>
+</aside>
 
 <!-- ===== FOOTER ===== -->
 <footer id="contact">
@@ -695,13 +940,167 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     var s=document.createElement('span');s.className='badge';s.textContent='New Arrival';m.appendChild(s);
   });
 
-  document.querySelectorAll('.prod__fav').forEach(function(b){
-    b.addEventListener('click',function(e){
-      e.preventDefault();
-      var on=b.classList.toggle('on');
-      b.setAttribute('aria-pressed',on);
-      b.setAttribute('aria-label',on?'Saved to wishlist':'Add to wishlist');
+  /* ===== PRODUCT REGISTRY (built from the DOM) ===== */
+  function priceNum(t){return parseFloat((t||'').replace(/[^0-9.]/g,''))||0}
+  function money(n){return '$'+n.toLocaleString('en-US')}
+  var products=[].slice.call(document.querySelectorAll('#fine .prod, .split__arr .prod')).map(function(card){
+    var media=card.querySelector('.prod__media');
+    return {
+      card:card,
+      media:media,
+      name:(card.querySelector('.prod__name').textContent||'').trim(),
+      priceText:(card.querySelector('.prod__price').textContent||'').trim(),
+      price:priceNum(card.querySelector('.prod__price').textContent),
+      mat:(card.querySelector('.prod__mat')||{}).textContent||'',
+      svg:(media.querySelector('svg')||{}).outerHTML||''
+    };
+  });
+  function findProduct(name){for(var i=0;i<products.length;i++){if(products[i].name===name)return products[i]}return null}
+
+  /* ===== WISHLIST (persisted) ===== */
+  var WKEY='aramea_wishlist';
+  function loadWish(){try{return JSON.parse(localStorage.getItem(WKEY))||[]}catch(e){return[]}}
+  function saveWish(a){try{localStorage.setItem(WKEY,JSON.stringify(a))}catch(e){}}
+  var wish=loadWish();
+  function setFav(btn,on){btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on);btn.setAttribute('aria-label',on?'Saved to wishlist':'Add to wishlist')}
+  document.querySelectorAll('.prod').forEach(function(card){
+    var btn=card.querySelector('.prod__fav');if(!btn)return;
+    var nameEl=card.querySelector('.prod__name');var name=nameEl?nameEl.textContent.trim():'';
+    if(wish.indexOf(name)>-1)setFav(btn,true);
+    btn.addEventListener('click',function(e){
+      e.preventDefault();e.stopPropagation();
+      var on=!btn.classList.contains('on');setFav(btn,on);
+      var i=wish.indexOf(name);
+      if(on&&i<0)wish.push(name); else if(!on&&i>-1)wish.splice(i,1);
+      saveWish(wish);
     });
+  });
+
+  /* ===== LOCAL CART (persisted) — fallback when Shopify isn't configured ===== */
+  var hasShopify=window.SHOPIFY&&window.SHOPIFY.domain&&window.SHOPIFY.storefrontToken;
+  var cartEl=document.getElementById('cart'),scrim=document.getElementById('scrim');
+  var cartItemsEl=document.getElementById('cartItems'),cartTotalEl=document.getElementById('cartTotal');
+  var bagCountEl=document.querySelector('.bag-count');
+  var CKEY='aramea_cart';
+  function loadCart(){try{return JSON.parse(localStorage.getItem(CKEY))||[]}catch(e){return[]}}
+  function saveCart(c){try{localStorage.setItem(CKEY,JSON.stringify(c))}catch(e){}}
+  var cart=loadCart();
+  function cartCount(){return cart.reduce(function(t,i){return t+i.qty},0)}
+  function cartTotal(){return cart.reduce(function(t,i){return t+i.price*i.qty},0)}
+  function renderCart(){
+    if(bagCountEl&&!hasShopify)bagCountEl.textContent='('+cartCount()+')';
+    cartTotalEl.textContent=money(cartTotal());
+    if(!cart.length){cartItemsEl.innerHTML='<p class="cart__empty">Your bag is empty.</p>';return}
+    cartItemsEl.innerHTML=cart.map(function(it,i){
+      var p=findProduct(it.name);
+      return '<div class="ci"><div class="ci__media">'+(p?p.svg:'')+'</div>'+
+        '<div class="ci__b"><div class="ci__name">'+it.name+'</div>'+
+        '<div class="ci__price">'+money(it.price)+'</div>'+
+        '<div class="ci__qty"><button data-act="dec" data-i="'+i+'" aria-label="Decrease">−</button>'+
+        '<span>'+it.qty+'</span><button data-act="inc" data-i="'+i+'" aria-label="Increase">+</button></div>'+
+        '<button class="ci__rm" data-act="rm" data-i="'+i+'">Remove</button></div></div>';
+    }).join('');
+  }
+  cartItemsEl.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-act]');if(!b)return;
+    var i=+b.getAttribute('data-i'),act=b.getAttribute('data-act');
+    if(act==='inc')cart[i].qty++;
+    else if(act==='dec'){cart[i].qty--;if(cart[i].qty<1)cart.splice(i,1)}
+    else if(act==='rm')cart.splice(i,1);
+    saveCart(cart);renderCart();
+  });
+  function openCart(){cartEl.classList.add('open');scrim.classList.add('open');document.body.classList.add('no-scroll')}
+  function closeCart(){cartEl.classList.remove('open');if(!qvEl.classList.contains('open'))scrim.classList.remove('open');document.body.classList.remove('no-scroll')}
+  function addToCart(name){
+    var p=findProduct(name);if(!p)return;
+    var ex=cart.filter(function(i){return i.name===name})[0];
+    if(ex)ex.qty++; else cart.push({name:name,price:p.price,qty:1});
+    saveCart(cart);renderCart();openCart();
+  }
+  document.getElementById('cartClose').addEventListener('click',closeCart);
+  document.getElementById('cartCheckout').addEventListener('click',function(){
+    if(!cart.length)return;
+    alert('Checkout is connected once Shopify is configured. '+cartCount()+' item(s) · '+money(cartTotal()));
+  });
+  // header Bag link opens local cart (only when Shopify is NOT handling it)
+  if(!hasShopify){
+    document.querySelectorAll('a.lbl').forEach(function(a){
+      if(/bag/i.test(a.textContent))a.addEventListener('click',function(e){e.preventDefault();openCart()});
+    });
+    // product bag icons add to local cart
+    document.querySelectorAll('.prod').forEach(function(card){
+      var btn=card.querySelector('.prod__bag');var nm=card.querySelector('.prod__name');
+      if(!btn||!nm)return;
+      btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();addToCart(nm.textContent.trim())});
+    });
+  }
+  renderCart();
+
+  /* ===== QUICK VIEW ===== */
+  var qvEl=document.getElementById('qv');
+  var qvMedia=document.getElementById('qvMedia'),qvName=document.getElementById('qvName'),
+      qvPrice=document.getElementById('qvPrice'),qvMat=document.getElementById('qvMat'),
+      qvDesc=document.getElementById('qvDesc'),qvAdd=document.getElementById('qvAdd');
+  var blurb={
+    'Aurora Diamond Pendant':'A brilliant-cut diamond suspended on a fine cable chain — understated radiance for every day.',
+    'Celestial Sapphire Ring':'A deep Ceylon sapphire framed in 18K gold, hand-set by our Miami atelier.',
+    'Lumina Gold Bangle':'A sculptural solid-gold bangle with a mirror-polished finish that catches every light.',
+    'Pearl Elegance Earrings':'Luminous drops pairing freshwater pearls with diamond accents.',
+    'Halo Eternity Band':'A continuous ring of pavé diamonds — a timeless symbol of forever.',
+    'Constellation Watch':'An 18K gold automatic timepiece with a guilloché dial and sapphire crystal.',
+    'Ember Ruby Ring':'A pigeon-blood ruby cradled in warm gold, bold and unmistakable.',
+    'Lumina Diamond Necklace':'A graduated diamond rivière that drapes effortlessly along the collarbone.'
+  };
+  var qvCurrent=null;
+  function openQV(p){
+    qvCurrent=p;
+    qvMedia.innerHTML=p.svg;qvName.textContent=p.name;qvPrice.textContent=p.priceText;
+    qvMat.textContent=p.mat;qvDesc.textContent=blurb[p.name]||'A signature Aramea piece, designed in Miami and finished entirely by hand.';
+    qvEl.classList.add('open');scrim.classList.add('open');document.body.classList.add('no-scroll');
+  }
+  function closeQV(){qvEl.classList.remove('open');if(!cartEl.classList.contains('open'))scrim.classList.remove('open');document.body.classList.remove('no-scroll')}
+  document.getElementById('qvClose').addEventListener('click',closeQV);
+  qvAdd.addEventListener('click',function(){if(qvCurrent){addToCart(qvCurrent.name);closeQV()}});
+  products.forEach(function(p){
+    p.media.addEventListener('click',function(e){
+      if(e.target.closest('.prod__icons'))return; // let icon buttons do their thing
+      openQV(p);
+    });
+  });
+
+  scrim.addEventListener('click',function(){closeQV();closeCart()});
+
+  /* ===== SEARCH ===== */
+  var searchEl=document.getElementById('search'),searchInput=document.getElementById('searchInput'),
+      searchRes=document.getElementById('searchRes'),searchNone=document.getElementById('searchNone');
+  function openSearch(){searchEl.classList.add('open');document.body.classList.add('no-scroll');setTimeout(function(){searchInput.focus()},80);runSearch('')}
+  function closeSearch(){searchEl.classList.remove('open');document.body.classList.remove('no-scroll')}
+  function runSearch(q){
+    q=q.trim().toLowerCase();
+    var list=q?products.filter(function(p){return (p.name+' '+p.mat).toLowerCase().indexOf(q)>-1}):products;
+    // de-dupe by name
+    var seen={},uniq=[];list.forEach(function(p){if(!seen[p.name]){seen[p.name]=1;uniq.push(p)}});
+    searchNone.hidden=uniq.length>0;
+    searchRes.innerHTML=uniq.map(function(p){
+      return '<a href="#" data-nm="'+p.name.replace(/"/g,'&quot;')+'"><span class="nm">'+p.name+'</span><span class="pr">'+p.priceText+'</span></a>';
+    }).join('');
+  }
+  searchRes.addEventListener('click',function(e){
+    var a=e.target.closest('a[data-nm]');if(!a)return;
+    e.preventDefault();var p=findProduct(a.getAttribute('data-nm'));
+    closeSearch();if(p)openQV(p);
+  });
+  var sOpen=document.getElementById('searchOpen');
+  if(sOpen)sOpen.addEventListener('click',openSearch);
+  document.getElementById('searchClose').addEventListener('click',closeSearch);
+  searchInput.addEventListener('input',function(){runSearch(searchInput.value)});
+
+  /* unified Escape handling for overlays */
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    if(searchEl.classList.contains('open'))closeSearch();
+    if(qvEl.classList.contains('open'))closeQV();
+    if(cartEl.classList.contains('open'))closeCart();
   });
 })();
 </script>
