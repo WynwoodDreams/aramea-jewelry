@@ -61,7 +61,7 @@
   --sans:'Jost', system-ui, sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:clamp(120px,16vw,160px)}
 body{margin:0;font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img,svg{max-width:100%;height:auto;display:block}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
@@ -85,7 +85,7 @@ ul{list-style:none;margin:0;padding:0}
 .topbar__uti{grid-column:3;display:flex;justify-content:flex-end;align-items:center;gap:24px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:500}
 .topbar__uti .lbl{font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
 .topbar__uti a:hover,.topbar__uti button:hover{color:var(--ink)}
-.topbar__uti .bag-count{color:var(--gold)}
+.topbar__uti .bag-count,.topbar__uti .wish-count{color:var(--gold)}
 .topbar__menu{grid-column:1;display:none}
 .nav--left{grid-column:1;justify-content:flex-start}
 .nav{display:flex;gap:clamp(16px,2.2vw,34px);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
@@ -357,7 +357,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
 <!-- ===== HEADER ===== -->
 <header class="site-header">
   <div class="announce">
-    <span>925 Silver</span><i>|</i><span class="announce--gold">18K Gold Laminated</span><i>|</i><span>The Wedding Edit — Now Live</span><i>|</i><span>Gift Wrapping</span><i>|</i><span>Made in Miami · Shipped Nationally</span>
+    <span>Complimentary Insured Shipping</span><i>|</i><span class="announce--gold">The Wedding Edit — Now Live</span><i>|</i><span>Complimentary Gift Wrapping</span><i>|</i><span>Designed &amp; Handcrafted in Miami</span>
   </div>
   <div class="topbar">
     <div class="topbar__menu"><button id="menuOpen" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
@@ -375,6 +375,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     <div class="topbar__uti">
       <button class="lbl" id="searchOpen" aria-label="Search">Search</button>
       <a href="#" class="lbl">Account</a>
+      <button class="lbl" id="wishOpen" aria-label="Saved items">Saved <span class="wish-count">(0)</span></button>
       <a href="#" class="lbl">Bag <span class="bag-count">(0)</span></a>
     </div>
   </div>
@@ -806,6 +807,15 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   </div>
 </aside>
 
+<!-- ===== WISHLIST DRAWER ===== -->
+<aside class="cart" id="wish" role="dialog" aria-modal="true" aria-label="Saved items">
+  <div class="cart__head">
+    <h3>Saved Items</h3>
+    <button id="wishClose" aria-label="Close saved items">✕</button>
+  </div>
+  <div class="cart__items" id="wishItems"></div>
+</aside>
+
 <!-- ===== FOOTER ===== -->
 <footer id="contact">
   <div class="wrap">
@@ -962,7 +972,20 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   function loadWish(){try{return JSON.parse(localStorage.getItem(WKEY))||[]}catch(e){return[]}}
   function saveWish(a){try{localStorage.setItem(WKEY,JSON.stringify(a))}catch(e){}}
   var wish=loadWish();
+  var wishCountEl=document.querySelector('.wish-count');
   function setFav(btn,on){btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on);btn.setAttribute('aria-label',on?'Saved to wishlist':'Add to wishlist')}
+  function updateWishCount(){if(wishCountEl)wishCountEl.textContent='('+wish.length+')'}
+  function syncFavButtons(){
+    document.querySelectorAll('.prod').forEach(function(card){
+      var b=card.querySelector('.prod__fav');var nm=card.querySelector('.prod__name');
+      if(b&&nm)setFav(b,wish.indexOf(nm.textContent.trim())>-1);
+    });
+  }
+  function toggleWish(name,on){
+    var i=wish.indexOf(name);
+    if(on&&i<0)wish.push(name); else if(!on&&i>-1)wish.splice(i,1);
+    saveWish(wish);updateWishCount();renderWish();
+  }
   document.querySelectorAll('.prod').forEach(function(card){
     var btn=card.querySelector('.prod__fav');if(!btn)return;
     var nameEl=card.querySelector('.prod__name');var name=nameEl?nameEl.textContent.trim():'';
@@ -970,11 +993,10 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     btn.addEventListener('click',function(e){
       e.preventDefault();e.stopPropagation();
       var on=!btn.classList.contains('on');setFav(btn,on);
-      var i=wish.indexOf(name);
-      if(on&&i<0)wish.push(name); else if(!on&&i>-1)wish.splice(i,1);
-      saveWish(wish);
+      toggleWish(name,on);
     });
   });
+  updateWishCount();
 
   /* ===== LOCAL CART (persisted) — fallback when Shopify isn't configured ===== */
   var hasShopify=window.SHOPIFY&&window.SHOPIFY.domain&&window.SHOPIFY.storefrontToken;
@@ -1010,7 +1032,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     saveCart(cart);renderCart();
   });
   function openCart(){cartEl.classList.add('open');scrim.classList.add('open');document.body.classList.add('no-scroll')}
-  function closeCart(){cartEl.classList.remove('open');if(!qvEl.classList.contains('open'))scrim.classList.remove('open');document.body.classList.remove('no-scroll')}
+  function closeCart(){cartEl.classList.remove('open');maybeHideScrim();document.body.classList.remove('no-scroll')}
   function addToCart(name){
     var p=findProduct(name);if(!p)return;
     var ex=cart.filter(function(i){return i.name===name})[0];
@@ -1036,6 +1058,39 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
   }
   renderCart();
 
+  /* ===== WISHLIST DRAWER ===== */
+  var wishEl=document.getElementById('wish'),wishItemsEl=document.getElementById('wishItems');
+  function renderWish(){
+    if(!wishItemsEl)return;
+    if(!wish.length){wishItemsEl.innerHTML='<p class="cart__empty">No saved items yet.<br>Tap the heart on any piece to save it.</p>';return}
+    wishItemsEl.innerHTML=wish.map(function(name){
+      var p=findProduct(name);if(!p)return '';
+      return '<div class="ci"><div class="ci__media">'+p.svg+'</div>'+
+        '<div class="ci__b"><div class="ci__name">'+name+'</div>'+
+        '<div class="ci__price">'+p.priceText+'</div>'+
+        '<div class="ci__qty"><button class="btn btn--out" style="padding:7px 16px;font-size:10px" data-act="bag" data-nm="'+name.replace(/"/g,'&quot;')+'">Add to Bag</button></div>'+
+        '<button class="ci__rm" data-act="unwish" data-nm="'+name.replace(/"/g,'&quot;')+'">Remove</button></div></div>';
+    }).join('');
+  }
+  wishItemsEl.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-act]');if(!b)return;
+    var nm=b.getAttribute('data-nm'),act=b.getAttribute('data-act');
+    if(act==='bag'){addToCart(nm);closeWish();}
+    else if(act==='unwish'){setFavByName(nm,false);toggleWish(nm,false);}
+  });
+  function setFavByName(name,on){
+    document.querySelectorAll('.prod').forEach(function(card){
+      var b=card.querySelector('.prod__fav'),nm=card.querySelector('.prod__name');
+      if(b&&nm&&nm.textContent.trim()===name)setFav(b,on);
+    });
+  }
+  function openWish(){renderWish();wishEl.classList.add('open');scrim.classList.add('open');document.body.classList.add('no-scroll')}
+  function closeWish(){wishEl.classList.remove('open');maybeHideScrim();document.body.classList.remove('no-scroll')}
+  function maybeHideScrim(){if(!qvEl.classList.contains('open')&&!cartEl.classList.contains('open')&&!wishEl.classList.contains('open'))scrim.classList.remove('open')}
+  var wishBtn=document.getElementById('wishOpen');
+  if(wishBtn)wishBtn.addEventListener('click',openWish);
+  document.getElementById('wishClose').addEventListener('click',closeWish);
+
   /* ===== QUICK VIEW ===== */
   var qvEl=document.getElementById('qv');
   var qvMedia=document.getElementById('qvMedia'),qvName=document.getElementById('qvName'),
@@ -1058,7 +1113,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     qvMat.textContent=p.mat;qvDesc.textContent=blurb[p.name]||'A signature Aramea piece, designed in Miami and finished entirely by hand.';
     qvEl.classList.add('open');scrim.classList.add('open');document.body.classList.add('no-scroll');
   }
-  function closeQV(){qvEl.classList.remove('open');if(!cartEl.classList.contains('open'))scrim.classList.remove('open');document.body.classList.remove('no-scroll')}
+  function closeQV(){qvEl.classList.remove('open');maybeHideScrim();document.body.classList.remove('no-scroll')}
   document.getElementById('qvClose').addEventListener('click',closeQV);
   qvAdd.addEventListener('click',function(){if(qvCurrent){addToCart(qvCurrent.name);closeQV()}});
   products.forEach(function(p){
@@ -1068,7 +1123,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     });
   });
 
-  scrim.addEventListener('click',function(){closeQV();closeCart()});
+  scrim.addEventListener('click',function(){closeQV();closeCart();closeWish()});
 
   /* ===== SEARCH ===== */
   var searchEl=document.getElementById('search'),searchInput=document.getElementById('searchInput'),
@@ -1101,6 +1156,7 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     if(searchEl.classList.contains('open'))closeSearch();
     if(qvEl.classList.contains('open'))closeQV();
     if(cartEl.classList.contains('open'))closeCart();
+    if(wishEl.classList.contains('open'))closeWish();
   });
 })();
 </script>
