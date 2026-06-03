@@ -308,15 +308,20 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
 .cart__head button{font-size:22px;line-height:1}
 .cart__items{flex:1;overflow:auto;padding:8px 24px}
 .cart__empty{color:var(--ink-soft);font-size:14px;text-align:center;padding:48px 0}
-.ci{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
-.ci__media{width:64px;height:64px;flex:none;background:var(--card);border:1px solid var(--line);overflow:hidden}
+.ci{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.ci__media{width:72px;height:72px;flex:none;background:var(--card);border:1px solid var(--line);overflow:hidden}
 .ci__media svg,.ci__media img{width:100%;height:100%;object-fit:cover}
-.ci__b{flex:1;min-width:0}
-.ci__name{font-family:var(--display);font-weight:600;font-size:16px}
-.ci__price{font-size:13px;color:var(--gold-dark);margin-top:2px}
-.ci__qty{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:13px}
-.ci__qty button{width:24px;height:24px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
-.ci__rm{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.ci__b{flex:1;min-width:0;display:flex;flex-direction:column}
+.ci__top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.ci__name{font-family:var(--display);font-weight:600;font-size:16px;line-height:1.2}
+.ci__line{font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink);white-space:nowrap}
+.ci__price{font-size:12px;color:var(--gold-dark);margin-top:3px}
+.ci__row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+.ci__qty{display:inline-flex;align-items:center;border:1px solid var(--line)}
+.ci__qty button{width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:var(--ink-soft);transition:background .15s,color .15s}
+.ci__qty button:hover{background:var(--cream);color:var(--ink)}
+.ci__qty span{min-width:30px;text-align:center;font-size:13px;font-variant-numeric:tabular-nums}
+.ci__rm{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s}
 .ci__rm:hover{color:#c0392b}
 /* wishlist item actions */
 .wi .ci__media{width:72px;height:72px}
@@ -1023,11 +1028,16 @@ footer{background:#1b1916;color:rgba(244,240,232,.62);margin-top:clamp(36px,5vw,
     cartItemsEl.innerHTML=cart.map(function(it,i){
       var p=findProduct(it.name);
       return '<div class="ci"><div class="ci__media">'+(p?p.svg:'')+'</div>'+
-        '<div class="ci__b"><div class="ci__name">'+it.name+'</div>'+
-        '<div class="ci__price">'+money(it.price)+'</div>'+
-        '<div class="ci__qty"><button data-act="dec" data-i="'+i+'" aria-label="Decrease">−</button>'+
-        '<span>'+it.qty+'</span><button data-act="inc" data-i="'+i+'" aria-label="Increase">+</button></div>'+
-        '<button class="ci__rm" data-act="rm" data-i="'+i+'">Remove</button></div></div>';
+        '<div class="ci__b">'+
+          '<div class="ci__top"><div><div class="ci__name">'+it.name+'</div>'+
+            '<div class="ci__price">'+money(it.price)+' each</div></div>'+
+            '<div class="ci__line">'+money(it.price*it.qty)+'</div></div>'+
+          '<div class="ci__row">'+
+            '<div class="ci__qty"><button data-act="dec" data-i="'+i+'" aria-label="Decrease quantity">−</button>'+
+            '<span>'+it.qty+'</span><button data-act="inc" data-i="'+i+'" aria-label="Increase quantity">+</button></div>'+
+            '<button class="ci__rm" data-act="rm" data-i="'+i+'">Remove</button>'+
+          '</div>'+
+        '</div></div>';
     }).join('');
   }
   cartItemsEl.addEventListener('click',function(e){
